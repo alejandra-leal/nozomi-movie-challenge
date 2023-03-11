@@ -3,7 +3,7 @@ import { IMovie } from "data/store";
 import React from "react";
 import { AddIcon } from "../add-icon";
 import { FavoriteIcon } from "../favorite-icon";
-import { Context, ActionTypes, AdditionalSearchFilter } from "data/store";
+import { Context, ActionTypes } from "data/store";
 import { useContext } from "react";
 import styles from "./index.module.css";
 import { CheckIcon } from "components/check-icon";

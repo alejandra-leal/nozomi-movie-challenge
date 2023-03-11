@@ -8,3 +8,9 @@
     grid-auto-rows: 1fr;
     list-style: none;
 }
+.emptyListMessage {
+    text-align: center;
+    font-family: 'Roboto';
+    margin-top: 50px;
+    color: var(--color-coral)
+}

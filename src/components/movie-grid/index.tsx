@@ -15,15 +15,13 @@ export const MovieGrid: React.FC<IProps> = () => {
   const { state } = useContext(Context);
 
   useEffect(() => {
-    const filter = state.additionalSearchFilter;
-    let moviesToShow = movies;
-    switch(filter) {
-      case(AdditionalSearchFilter.Starred): {
-        moviesToShow = Array.from(state.favoriteMovies.values());
+    switch (state.additionalSearchFilter) {
+      case AdditionalSearchFilter.Starred: {
+        setMovies(Array.from(state.favoriteMovies.values()));
         break;
       }
-      case(AdditionalSearchFilter.WatchLater): {
-        moviesToShow = Array.from(state.watchLaterMovies.values());
+      case AdditionalSearchFilter.WatchLater: {
+        setMovies(Array.from(state.watchLaterMovies.values()));
         break;
       }
       default:
@@ -31,30 +29,37 @@ export const MovieGrid: React.FC<IProps> = () => {
           setMovies(response.results);
         });
         break;
-
     }
-    setMovies(moviesToShow);
-  }, [state.additionalSearchFilter])
+  }, [state.additionalSearchFilter, state.favoriteMovies, state.watchLaterMovies]);
 
   useEffect(() => {
     fetchMovies(ENDPOINT_DISCOVER).then((response) => {
       setMovies(response.results);
     });
-  },
-  []);
-  
+  }, []);
+
   return (
-    <section role="grid">
-      <ul className={styles.list}>
-      {movies?.map((movie) => (
-        <MovieCard key={movie.id} movie={movie}/>
-      ))}
-    </ul>
-    </section>
+    <>
+      {movies && movies.length ? (
+        <section role="grid">
+          <ul className={styles.list}>
+            {movies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+          </ul>
+        </section>
+      ) : (
+        <div className={styles.emptyListMessage}>
+        <h3>Nothing to see here.</h3>
+        <p>Don't be shy, add a movie to your {state.additionalSearchFilter === AdditionalSearchFilter.Starred ? "Favorites" : "Watch Later"} list!</p>
+
+        </div>
+      )}
+    </>
   );
 };
 
-export const fetchMovies =  async (apiUrl: string) => {
-  const response = await fetch(apiUrl)
-  return response.json()
-}
+export const fetchMovies = async (apiUrl: string) => {
+  const response = await fetch(apiUrl);
+  return response.json();
+};

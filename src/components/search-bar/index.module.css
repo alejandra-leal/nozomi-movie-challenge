@@ -1,0 +1,27 @@
+@import "../../vars.css";
+
+.container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    background-color: var(--color-light-cream);
+    border-radius: 35px;
+    padding: 6px;
+}
+.searchInput{
+    width: 100%;
+    border: none;
+    background-color: var(--color-light-cream);
+    outline: none;
+    font-size: .9em;
+    color: var(--icon-color);
+}
+::placeholder{
+    color: var(--icon-color)
+}

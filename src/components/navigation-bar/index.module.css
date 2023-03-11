@@ -1,0 +1,22 @@
+@import "../../vars.css";
+
+.container {
+    display: flex;
+    justify-content: center;
+    
+}
+.navItemsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+
+
+}
+
+/*TODO: add color when selected!*/
+.navItem {
+    color: var(--color-peach);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Verdana";
+}

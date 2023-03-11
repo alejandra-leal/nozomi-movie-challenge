@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Cabin:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic&subset=latin,latin-ext');
+
+:root {
+    --color-cream: #F6EEE0;
+    --color-peach: #E4B7A0;
+    --color-coral: #C38370;
+    --color-desert-sun: #A8534B;
+    --color-light-cream: #E9DDD4;
+    --icon-color: gray;
+    --selected-icon-color: red;
+  }

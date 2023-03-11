@@ -17,38 +17,15 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
   const isFavorite = state.favoriteMovies.get(movie.id);
   const isWatchLater = state.watchLaterMovies.get(movie.id);
 
-  const handleFavClick = () => {
-    if (
-      isFavorite
-    ) {
-      dispatch({
-        type: ActionTypes.REMOVE_FAVORITES,
-        payload: movie.id,
-      });
-    }else {
-        dispatch({
-            type: ActionTypes.ADD_TO_FAVORITES,
-            payload: movie,
+  const handleClick = (action: ActionTypes.HANDLE_FAVORITES | ActionTypes.HANDLE_WATCH_LATER, shouldRemove: boolean) => {
+    dispatch({
+            type: action,
+            payload: {
+                movie,
+                shouldRemove
+            },
           });
-    }
   };
-
-  const handleWatchLaterClick = () => {
-    if (
-        isWatchLater
-    ) {
-      dispatch({
-        type: ActionTypes.REMOVE_WATCH_LATER,
-        payload: movie.id,
-      });
-    }else {
-        dispatch({
-            type: ActionTypes.ADD_TO_WATCH_LATER,
-            payload: movie,
-          });
-    }
-  };
-
   return (
     <div className={styles.movie}>
       <div className={styles.descriptionContainer}>
@@ -75,7 +52,7 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
         <button
           className={styles.iconButton}
           onClick={() => {
-            handleFavClick();
+            handleClick(ActionTypes.HANDLE_FAVORITES, !!isFavorite);
           }}
         >
           <FavoriteIcon color={isFavorite ? "red" : "gray"} />
@@ -83,7 +60,7 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
         <button
           className={styles.iconButton}
           onClick={() => {
-            handleWatchLaterClick();
+            handleClick(ActionTypes.HANDLE_WATCH_LATER, !!isWatchLater);
           }}
         >
           {isWatchLater ? (

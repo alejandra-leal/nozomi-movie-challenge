@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { MovieCard } from "../movie-card";
 import styles from "./index.module.css";
-import { ENDPOINT_DISCOVER } from "../../constants";
+import { ENDPOINT_DISCOVER, ENDPOINT_SEARCH } from "../../constants";
 import { AdditionalSearchFilter, IMovie } from "data/store";
 import { Context } from "data/store";
 import { useContext } from "react";
@@ -14,6 +14,14 @@ export const MovieGrid: React.FC<IProps> = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const { state } = useContext(Context);
 
+  // Initialize movies
+  useEffect(() => {
+    fetchMovies(ENDPOINT_DISCOVER).then((response) => {
+      setMovies(response.results);
+    });
+  }, []);
+
+  // Apply selected filter
   useEffect(() => {
     switch (state.additionalSearchFilter) {
       case AdditionalSearchFilter.Starred: {
@@ -32,11 +40,19 @@ export const MovieGrid: React.FC<IProps> = () => {
     }
   }, [state.additionalSearchFilter, state.favoriteMovies, state.watchLaterMovies]);
 
-  useEffect(() => {
-    fetchMovies(ENDPOINT_DISCOVER).then((response) => {
+  // Perform search stuff
+  useLayoutEffect(() => {
+    if (!state.searchQuery) {
+      return;
+    }
+    const url = `${ENDPOINT_SEARCH}&query=${state.searchQuery}&page=1`;
+    fetchMovies(url).then((response) => {
       setMovies(response.results);
     });
-  }, []);
+
+  }, [state.searchQuery]);
+
+  
 
   return (
     <>

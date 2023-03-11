@@ -27,13 +27,16 @@ export interface IMovie {
   poster_path: string;
 }
 
+export interface IAddMoviePayload {
+  movie: IMovie
+  shouldRemove: boolean
+}
+
 export enum ActionTypes {
   SET_ADDITIONAL_FILTER = "SET_ADDITIONAL_FILTER",
   SET_SEARCH_QUERY = "SET_SEARCH_QUERY",
-  ADD_TO_FAVORITES = "ADD_TO_FAVORITES",
-  ADD_TO_WATCH_LATER = "ADD_TO_WATCH_LATER",
-  REMOVE_FAVORITES = "REMOVE_FAVORITES",
-  REMOVE_WATCH_LATER = "REMOVE_WATCH_LATER",
+  HANDLE_FAVORITES = "HANDLE_FAVORITES",
+  HANDLE_WATCH_LATER = "HANDLE_WATCH_LATER",
 }
 
 type Actions =
@@ -42,10 +45,8 @@ type Actions =
       payload: AdditionalSearchFilter;
     }
   | { type: ActionTypes.SET_SEARCH_QUERY; payload: string }
-  | { type: ActionTypes.ADD_TO_FAVORITES; payload: IMovie }
-  | { type: ActionTypes.ADD_TO_WATCH_LATER; payload: IMovie }
-  | { type: ActionTypes.REMOVE_FAVORITES; payload: Number }
-  | { type: ActionTypes.REMOVE_WATCH_LATER; payload: Number };
+  | { type: ActionTypes.HANDLE_FAVORITES; payload: IAddMoviePayload }
+  | { type: ActionTypes.HANDLE_WATCH_LATER; payload: IAddMoviePayload }
 
 export const Context = React.createContext<{
   state: IState;
@@ -66,26 +67,24 @@ export const stateReducer = (state: IState, action: Actions): IState => {
         searchQuery: action.payload,
       };
     }
-    case ActionTypes.ADD_TO_FAVORITES: {
-      state.favoriteMovies.set(action.payload.id, action.payload);
+    case ActionTypes.HANDLE_FAVORITES: {
+      const movieId = action.payload.movie.id;
+      if(action.payload.shouldRemove) {
+        state.favoriteMovies.delete(movieId);
+      } else {
+        state.favoriteMovies.set(movieId, action.payload.movie);
+      }
       return {
         ...state,
       };
     }
-    case ActionTypes.REMOVE_FAVORITES: {
-      state.favoriteMovies.delete(action.payload);
-      return {
-        ...state,
-      };
-    }
-    case ActionTypes.ADD_TO_WATCH_LATER: {
-      state.watchLaterMovies.set(action.payload.id, action.payload);
-      return {
-        ...state,
-      };
-    }
-    case ActionTypes.REMOVE_WATCH_LATER: {
-      state.watchLaterMovies.delete(action.payload);
+    case ActionTypes.HANDLE_WATCH_LATER: {
+      const movieId = action.payload.movie.id;
+      if(action.payload.shouldRemove) {
+        state.watchLaterMovies.delete(movieId);
+      } else {
+        state.watchLaterMovies.set(movieId, action.payload.movie);
+      }
       return {
         ...state,
       };

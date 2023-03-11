@@ -9,27 +9,27 @@ export enum AdditionalSearchFilter {
 export interface IState {
     additionalSearchFilter: AdditionalSearchFilter;
     searchQuery: string;
-    favoriteMovies: Set<string>,
-    watchLaterMovies: Set<string>
+    favoriteMovies: Map<Number, IMovie>,
+    watchLaterMovies: Map<Number, IMovie>
 }
 
 export const initialState: IState = {
     additionalSearchFilter: AdditionalSearchFilter.None,
     searchQuery: "",
-    favoriteMovies: new Set(),
-    watchLaterMovies: new Set(),
+    favoriteMovies: new Map(),
+    watchLaterMovies: new Map(),
 };
 
 export interface IMovie {
     id: Number,
-    title: String,
-    description: String,
-    imgPath: String
+    title: string,
+    overview: string,
+    poster_path: string
 }
 
 export enum ActionTypes {
     SET_ADDITIONAL_FILTER = "SET_ADDITIONAL_FILTER",
-    ANOTHER_ONE = "ANOTHER_ONE"
+    SET_SEARCH_QUERY = "SET_SEARCH_QUERY"
 }
 
 type Actions =
@@ -37,7 +37,7 @@ type Actions =
       type: ActionTypes.SET_ADDITIONAL_FILTER;
       payload: AdditionalSearchFilter;
     }
- |  { type: ActionTypes.ANOTHER_ONE;
+ |  { type: ActionTypes.SET_SEARCH_QUERY;
       payload: string 
     }
 
@@ -56,6 +56,13 @@ export const stateReducer = (
             return {
                 ...state,
                 additionalSearchFilter: action.payload,
+              };
+        }
+        case ActionTypes.SET_SEARCH_QUERY: {
+            console.log("LEAL HERE AT SET_SEARCH_QUERY", action);
+            return {
+                ...state,
+                searchQuery: action.payload,
               };
         }
         default:

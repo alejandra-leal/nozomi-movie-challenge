@@ -13,6 +13,7 @@
     background-color: var(--color-light-cream);
     border-radius: 35px;
     padding: 6px;
+    max-width: 800px;
 }
 .searchInput{
     width: 100%;
@@ -24,4 +25,10 @@
 }
 ::placeholder{
     color: var(--icon-color)
+}
+
+.searchButton{
+    background: none;
+    border: none;
+    cursor: pointer;
 }

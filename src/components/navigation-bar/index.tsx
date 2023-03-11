@@ -1,3 +1,4 @@
+import React from "react";
 import { Context, ActionTypes, AdditionalSearchFilter } from "data/store";
 import { useContext } from "react";
 import styles from "./index.module.css";

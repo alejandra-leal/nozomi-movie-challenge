@@ -1,11 +1,31 @@
+import { IMG_URL_BASE } from "../../constants";
+import { IMovie } from "data/store";
 import React from "react";
 import { AddIcon } from "../add-icon";
 import { FavoriteIcon } from "../favorite-icon";
 import styles from "./index.module.css";
 
-export const MovieCard = () => {
+interface IMovieCardPops {
+    movie: IMovie
+}
+
+export const MovieCard: React.FC<IMovieCardPops> = ({movie}) => {
     return (
     <div className={styles.movie}>
+        <div className={styles.descriptionContainer}>
+            <div className={styles.description}>
+               <span>{movie.overview}</span>
+            </div>
+            <button className={styles.watchTrailerBtn}> Watch trailer!</button>
+
+        </div>
+        <div className={styles.movieImg}>
+            <img src={movie.poster_path ? `${IMG_URL_BASE}${movie.poster_path}` : "https://via.placeholder.com/400"} alt={movie.title} />
+        </div>
+        <div className={styles.movieInfo}>
+            <span className={styles.movieType}>Film Type</span>
+            <h3 className={styles.movieTitle}>{movie.title}</h3>
+        </div>
         <div className={styles.iconContainer}>
             <button className={styles.iconButton}
             onClick={()=>{console.log("LEAL FAV CLICK!")}}>
@@ -16,13 +36,6 @@ export const MovieCard = () => {
                 <AddIcon color="gray"/>
             </button>
 
-        </div>
-        <div className={styles.movieImg}>
-            <img src="https://via.placeholder.com/400" alt="Movie Title Here" />
-        </div>
-        <div className={styles.movieInfo}>
-            <span className={styles.movieType}>Film Type</span>
-            <h3 className={styles.movieTitle}>Movie Title</h3>
         </div>
     </div>
     )

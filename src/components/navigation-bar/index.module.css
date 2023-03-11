@@ -19,4 +19,11 @@
     text-decoration: none;
     text-transform: uppercase;
     font-family: "Verdana";
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.selected {
+    color:  var(--color-desert-sun);
 }

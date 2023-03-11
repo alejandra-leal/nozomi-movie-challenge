@@ -1,12 +1,14 @@
 import { IMG_URL_BASE } from "../../constants";
 import { IMovie } from "data/store";
-import React from "react";
+import React, { useState } from "react";
 import { AddIcon } from "../add-icon";
 import { FavoriteIcon } from "../favorite-icon";
 import { Context, ActionTypes } from "data/store";
 import { useContext } from "react";
 import styles from "./index.module.css";
 import { CheckIcon } from "components/check-icon";
+import { TrailerModal } from "components/trailer-modal";
+
 
 interface IMovieCardPops {
   movie: IMovie;
@@ -26,13 +28,19 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
             },
           });
   };
+  const handleOpenModal = () => {
+    dispatch({
+      type: ActionTypes.SET_MOVIE_MODAL,
+      payload: movie
+    });
+  }
   return (
     <div className={styles.movie}>
       <div className={styles.descriptionContainer}>
         <div className={styles.description}>
           <span>{movie.overview}</span>
         </div>
-        <button className={styles.watchTrailerBtn}> Watch trailer!</button>
+        <button className={styles.watchTrailerBtn} onClick={() => {handleOpenModal()}}> Watch trailer!</button>
       </div>
       <div className={styles.movieImg}>
         <img

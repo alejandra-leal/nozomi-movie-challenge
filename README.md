@@ -1,6 +1,6 @@
 # Nozomi Movie App
 
-Nozomi comes from the word "hope" in japanese, doesn't really have anything to do with movies, but we should never lose it.
+Nozomi comes from the word "hope" in japanese, doesn't really have anything to do with movies, but we should never lose it <3.
 
 ## Prerequisites 
 

@@ -11,6 +11,7 @@ export interface IState {
   searchQuery: string;
   favoriteMovies: Map<Number, IMovie>;
   watchLaterMovies: Map<Number, IMovie>;
+  movieModal: IMovie | null;
 }
 
 export const initialState: IState = {
@@ -18,6 +19,7 @@ export const initialState: IState = {
   searchQuery: "",
   favoriteMovies: new Map(),
   watchLaterMovies: new Map(),
+  movieModal: null
 };
 
 export interface IMovie {
@@ -37,6 +39,7 @@ export enum ActionTypes {
   SET_SEARCH_QUERY = "SET_SEARCH_QUERY",
   HANDLE_FAVORITES = "HANDLE_FAVORITES",
   HANDLE_WATCH_LATER = "HANDLE_WATCH_LATER",
+  SET_MOVIE_MODAL = "SET_MOVIE_MODAL",
 }
 
 type Actions =
@@ -47,6 +50,7 @@ type Actions =
   | { type: ActionTypes.SET_SEARCH_QUERY; payload: string }
   | { type: ActionTypes.HANDLE_FAVORITES; payload: IAddMoviePayload }
   | { type: ActionTypes.HANDLE_WATCH_LATER; payload: IAddMoviePayload }
+  | { type: ActionTypes.SET_MOVIE_MODAL; payload: IMovie | null }
 
 export const Context = React.createContext<{
   state: IState;
@@ -87,6 +91,12 @@ export const stateReducer = (state: IState, action: Actions): IState => {
       }
       return {
         ...state,
+      };
+    }
+    case ActionTypes.SET_MOVIE_MODAL: {
+      return {
+        ...state,
+        movieModal: action.payload,
       };
     }
     default:

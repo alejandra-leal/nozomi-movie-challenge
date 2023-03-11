@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MovieCard } from "../movie-card";
 import styles from "./index.module.css";
 import { ENDPOINT_DISCOVER, ENDPOINT_SEARCH } from "../../constants";
@@ -6,11 +6,7 @@ import { AdditionalSearchFilter, IMovie } from "data/store";
 import { Context } from "data/store";
 import { useContext } from "react";
 
-interface IProps {
-  movieList?: any[];
-}
-
-export const MovieGrid: React.FC<IProps> = () => {
+export const MovieGrid = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const { state } = useContext(Context);
 
@@ -41,7 +37,7 @@ export const MovieGrid: React.FC<IProps> = () => {
   }, [state.additionalSearchFilter, state.favoriteMovies, state.watchLaterMovies]);
 
   // Perform search stuff
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!state.searchQuery) {
       return;
     }

@@ -1,13 +1,13 @@
 import styles from "./index.module.css";
 
-interface ITrailerModalProps {
+interface IModalProps {
   children: React.ReactNode;
   closeModal: () => void;
   title: string;
 }
 
 
-export const Modal: React.FC<ITrailerModalProps> = ({ closeModal, children, title }) => {
+export const Modal: React.FC<IModalProps> = ({ closeModal, children, title }) => {
   return (
     <div className={styles.container}>
       <div className={styles.modalContainer}>

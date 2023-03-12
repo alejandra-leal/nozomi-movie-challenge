@@ -1,0 +1,40 @@
+import React from "react";
+import { MovieCard } from "../movie-card";
+import styles from "./index.module.css";
+import { IMovie } from "data/store";
+
+
+interface IMovieSearchSectionProps {
+    movies: IMovie[],
+    sectionName?: string
+  }
+  
+
+export const MovieListSection: React.FC<IMovieSearchSectionProps> = ({movies, sectionName}) => {
+  return (
+    <>
+    {movies.length ? (
+      <section role="grid" id="movie-search-list">
+      <ul className={styles.list}>
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </ul>
+    </section>
+    ) :
+    (
+      <div className={styles.emptyListMessage}>
+        <h3>Nothing to see here.</h3>
+         {sectionName && <p>Don't be shy, add a movie to your {sectionName} list!</p>}
+        </div>
+    )
+   }
+  </>
+    
+  );
+};
+
+export const fetchMovies = async (apiUrl: string) => {
+  const response = await fetch(apiUrl);
+  return response.json();
+};

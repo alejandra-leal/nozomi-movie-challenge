@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, useContext, useEffect } from "react";
 import useMovies from '../../hooks/useMovies';
 import { MovieCard } from "components/movie-card";
 import { Context } from "data/store";
+import styles from "./index.module.css";
 
 export const SearchResultMovieSectionContent = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -28,7 +29,7 @@ export const SearchResultMovieSectionContent = () => {
     } else {
       interceptionObserver.current = new IntersectionObserver(movies => {
         if (movies[0].isIntersecting && hasNextPage) {
-          console.log("We are near the last post!!");
+          // We are near the last post!!
           setPageNum(prev => prev + 1);
         }
       })
@@ -51,7 +52,8 @@ export const SearchResultMovieSectionContent = () => {
   return (
     <>
       {content}
-      {isLoading && <p> Loading more posts!!</p>}
+      {(isLoading && hasNextPage) && <div className={styles.loading}><p > Loading more posts..</p></div>}
+      
     </>
   )
 };

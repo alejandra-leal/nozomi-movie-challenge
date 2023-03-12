@@ -29,7 +29,7 @@ export interface IMovie {
   poster_path: string;
 }
 
-export interface IAddMoviePayload {
+interface IAddMoviePayload {
   movie: IMovie
   shouldRemove: boolean
 }

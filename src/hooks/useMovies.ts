@@ -15,10 +15,11 @@ const useMovies = (searchQuery:string, pageNum =1) => {
         setIsError(false);
         setError({});
 
-        // abort controller will cancel the request when the componen unmounts
+        // abort controller will cancel the request when the component unmounts
         const controller = new AbortController();
         const {signal} = controller;
         getMovies(searchQuery, pageNum, {signal}).then(response => {
+            // pageNum 1 means new search
             if (pageNum === 1) {
                 setMovieResults(response.results);
 

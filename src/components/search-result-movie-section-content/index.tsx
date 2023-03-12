@@ -34,12 +34,9 @@ export const SearchResultMovieSectionContent = () => {
 
   if(isError) return <p>Something went wrong when trying to retrieve movies, please try again.</p>
 
-  const content = movieResults.map((movie, i) => {
-    // If is last element
-    if(movieResults.length === i + 1) {
-      return <MovieCard ref={lastMovieRef} key={movie.id} movie={movie} />
-    }
-    return <MovieCard key={movie.id} movie={movie} />
+  const content = movieResults.map((movie, index) => {
+    // If is last element, send ref
+    return <MovieCard ref={movieResults.length === index + 1 ? lastMovieRef : null} key={index} movie={movie} />
    
 
   })

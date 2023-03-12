@@ -1,16 +1,23 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useContext, useEffect } from "react";
 import useMovies from '../../hooks/useMovies';
 import { MovieCard } from "components/movie-card";
+import { Context } from "data/store";
 
 export const SearchResultMovieSectionContent = () => {
   const [pageNum, setPageNum] = useState(1);
+  const {state} = useContext(Context);
 
   const {
     isLoading,
     isError,
     movieResults,
     hasNextPage 
-  } = useMovies(pageNum);
+  } = useMovies(state.searchQuery, pageNum);
+
+  // Reset pageNum when searchQuery is changed
+  useEffect(() => {
+    setPageNum(1);
+  }, [state.searchQuery])
 
   const interceptionObserver = useRef<IntersectionObserver>(); // is better to use the interception Observer than the scroll events
   const lastMovieRef = useCallback<(movie:Element) => void>(movie => {

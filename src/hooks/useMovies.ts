@@ -2,7 +2,7 @@ import { getMovies } from 'api/movies';
 import { IMovie } from 'data/store';
 import { useState, useEffect} from 'react';
 
-const useMovies = (pageNum =1) => {
+const useMovies = (searchQuery:string, pageNum =1) => {
     const [movieResults, setMovieResults] = useState<IMovie[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
@@ -18,8 +18,13 @@ const useMovies = (pageNum =1) => {
         // abort controller will cancel the request when the componen unmounts
         const controller = new AbortController();
         const {signal} = controller;
-        getMovies(pageNum, {signal}).then(response => {
-            setMovieResults(prev => [...prev, ...response.results]);
+        getMovies(searchQuery, pageNum, {signal}).then(response => {
+            if (pageNum === 1) {
+                setMovieResults(response.results);
+
+            } else {
+                setMovieResults(prev => [...prev, ...response.results]);
+            }
             setHasNextPage(Boolean(response.results.length));
             setIsLoading(false);
         })
@@ -33,7 +38,7 @@ const useMovies = (pageNum =1) => {
 
         // cleanup
         return () => controller.abort()
-    }, [pageNum]);
+    }, [pageNum, searchQuery]);
 
     return {
         isLoading,

@@ -1,13 +1,21 @@
 import { API_KEY, ENDPOINT, ENDPOINT_DISCOVER, ENDPOINT_SEARCH } from "../constants";
 
 // TODO. add types
-export async function getMovies(pagNum?: number, signal?: any) {
+export async function getMovies(searchQuery: string, pagNum?: number, signal?: any) {
+    if(searchQuery){
+        return searchMovie(searchQuery, pagNum, signal);
+    }
+    return fetchMovies(pagNum, signal);
+    
+}
+
+export async function fetchMovies(pagNum?: number, signal?: any) {
     const response = await fetch(`${ENDPOINT_DISCOVER}&page=${pagNum}`);
     return response.json();
 }
 
-export async function searchMovie(searchQuery: string) {
-    const url = `${ENDPOINT_SEARCH}&query=${searchQuery}&page=1`;
+export async function searchMovie(searchQuery: string, pagNum?: number, signal?: any) {
+    const url = `${ENDPOINT_SEARCH}&query=${searchQuery}&page=${pagNum}`;
     const response = await fetch(url);
     return response.json();
 

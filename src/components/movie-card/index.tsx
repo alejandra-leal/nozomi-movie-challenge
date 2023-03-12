@@ -36,8 +36,7 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) =>
     });
   }
   return (
-    <article ref={ref}>
-    <div className={styles.movie}>
+    <article className={styles.movie} ref={ref}>
       <div className={styles.descriptionContainer}>
         <div className={styles.description}>
           <span>{movie.overview}</span>
@@ -80,7 +79,6 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) =>
           )}
         </button>
       </div>
-    </div>
     </article>
   );
 })

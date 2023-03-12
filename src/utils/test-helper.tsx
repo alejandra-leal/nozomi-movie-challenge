@@ -4,7 +4,7 @@ import { IAppContext } from "models/app-context";
 import { ReactElement, JSXElementConstructor } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-export const getProvidersWrapper =
+export const getContextProviderWrapper =
   (
     contextData: IAppContext,
     dispatchMock: jest.Mock<any, any>
@@ -21,21 +21,21 @@ export const getProvidersWrapper =
     );
   };
 
-const customRender = (
+const renderOverride = (
   ui: ReactElement,
   contextData: IAppContext = initialState,
   dispatchMock = jest.fn(),
   options?: Omit<RenderOptions, "wrapper">
 ) => {
   const component = render(ui, {
-    wrapper: getProvidersWrapper(contextData, dispatchMock),
+    wrapper: getContextProviderWrapper(contextData, dispatchMock),
     ...options,
   });
 
   return { component };
 };
 
-const customRenderHook = (
+const renderHookOverride = (
   callback: (props: any) => any,
   contextData: IAppContext = initialState,
   dispatchMock = jest.fn(),
@@ -43,9 +43,9 @@ const customRenderHook = (
 ) => {
   return renderHook(callback, {
     ...options,
-    wrapper: getProvidersWrapper(contextData, dispatchMock),
+    wrapper: getContextProviderWrapper(contextData, dispatchMock),
   });
 };
 
 export * from "@testing-library/react";
-export { customRender as render, customRenderHook as renderHook };
+export { renderOverride as render, renderHookOverride as renderHook };

@@ -3,7 +3,7 @@ import { Header } from "./components/header";
 import { NavigationBar } from "./components/navigation-bar";
 import { SearchBar } from "./components/search-bar";
 import { stateReducer, initialState, Context, ActionTypes } from "./data/store";
-import { MovieGrid } from "components/movie-grid";
+import { MovieSectionPicker } from "components/movie-section-picker";
 import { TrailerModal } from "components/trailer-modal";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
       <Header />
       <NavigationBar />
       <SearchBar />
-      <MovieGrid />
+      <MovieSectionPicker />
     </Context.Provider>
   );
 }

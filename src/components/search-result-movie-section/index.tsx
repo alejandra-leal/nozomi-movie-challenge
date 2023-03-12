@@ -1,6 +1,6 @@
 import { AdditionalSearchFilter, Context, IMovie } from "data/store";
 import { useContext, useEffect, useState } from "react";
-import { MovieListSection } from "components/movie-list-section";
+import { MovieListSection } from "components/movie-list";
 import { ENDPOINT_DISCOVER, ENDPOINT_SEARCH } from "../../constants";
 
 export const SearchResultMovieSection = () => {

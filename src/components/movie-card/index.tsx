@@ -8,7 +8,6 @@ import { useContext } from "react";
 import styles from "./index.module.css";
 import { CheckIcon } from "components/check-icon";
 
-
 interface IMovieCardPops {
   movie: IMovie;
 }
@@ -17,6 +16,9 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
   const { state, dispatch } = useContext(Context);
   const isFavorite = state.favoriteMovies.get(movie.id);
   const isWatchLater = state.watchLaterMovies.get(movie.id);
+  const iconColor = "gray";
+  const favSelectedIconColor = "red";
+  const watchLaterSelectedIconColor = "green";
 
   const handleClick = (action: ActionTypes.HANDLE_FAVORITES | ActionTypes.HANDLE_WATCH_LATER, shouldRemove: boolean) => {
     dispatch({
@@ -62,7 +64,7 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
             handleClick(ActionTypes.HANDLE_FAVORITES, !!isFavorite);
           }}
         >
-          <FavoriteIcon color={isFavorite ? "red" : "gray"} />
+          <FavoriteIcon color={isFavorite ? favSelectedIconColor : iconColor} />
         </button>
         <button
           className={styles.iconButton}
@@ -71,9 +73,9 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
           }}
         >
           {isWatchLater ? (
-            <CheckIcon color="green" />
+            <CheckIcon color={watchLaterSelectedIconColor} />
           ) : (
-            <AddIcon color="gray" />
+            <AddIcon color={iconColor} />
           )}
         </button>
       </div>

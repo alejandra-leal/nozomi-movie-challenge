@@ -1,6 +1,6 @@
 import { Context } from "data/store";
 import { useContext } from "react";
-import { MovieListSection } from "components/movie-list-section";
+import { MovieListSection } from "components/movie-list";
 
 export const WatchLaterMovieSection = () => {
   const { state } = useContext(Context);

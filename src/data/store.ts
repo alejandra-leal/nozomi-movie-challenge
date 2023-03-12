@@ -1,5 +1,5 @@
 import React, { Dispatch } from "react";
-
+// TODO: extract interfaces to a model file or something
 export enum AdditionalSearchFilter {
   None = "NONE",
   Starred = "STARRED",

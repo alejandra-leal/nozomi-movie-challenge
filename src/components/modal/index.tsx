@@ -10,7 +10,7 @@ export const Modal: React.FC<IModalProps> = ({ closeModal, children, title }) =>
               closeModal();
             }}
           >
-            X{" "}
+            X
           </button>
         </div>
         <div className={styles.title}>

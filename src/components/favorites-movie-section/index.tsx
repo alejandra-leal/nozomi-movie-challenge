@@ -1,9 +1,9 @@
-import { Context } from "data/store";
+import { AppContext } from "data/store";
 import { useContext } from "react";
 import { MovieListGrid } from "components/movie-list-grid";
 
 export const FavoritesMovieSection = () => {
-  const { state } = useContext(Context);
+  const { state } = useContext(AppContext);
 
   return (
     <MovieListGrid

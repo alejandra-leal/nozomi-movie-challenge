@@ -1,9 +1,9 @@
 import { AdditionalSearchFilter } from "models/additional-search-filter";
-import { IState } from "models/app-state";
+import { IAppContext } from "models/app-context";
 import { IAddMoviePayload, IMovie } from "models/movie";
 import React, { Dispatch } from "react";
 
-export const initialState: IState = {
+export const initialState: IAppContext = {
   additionalSearchFilter: AdditionalSearchFilter.None,
   searchQuery: "",
   favoriteMovies: new Map(),
@@ -29,12 +29,12 @@ type Actions =
   | { type: ActionType.HANDLE_WATCH_LATER; payload: IAddMoviePayload }
   | { type: ActionType.SET_MOVIE_MODAL; payload: IMovie | null }
 
-export const Context = React.createContext<{
-  state: IState;
+export const AppContext = React.createContext<{
+  state: IAppContext;
   dispatch: Dispatch<Actions>;
 }>({ state: initialState, dispatch: () => null });
 
-export const stateReducer = (state: IState, action: Actions): IState => {
+export const stateReducer = (state: IAppContext, action: Actions): IAppContext => {
   switch (action.type) {
     case ActionType.SET_ADDITIONAL_FILTER: {
       return {

@@ -14,7 +14,7 @@
 
 .modalContainer {
   min-width: 60%;
-  min-height: 60%;
+  min-height: 80%;
   border-radius: 12px;
   background-color: var(--color-cream);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

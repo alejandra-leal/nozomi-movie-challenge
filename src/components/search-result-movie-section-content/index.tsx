@@ -1,12 +1,12 @@
 import { useState, useRef, useCallback, useContext, useEffect } from "react";
 import useMovies from '../../hooks/useMovies';
 import { MovieCard } from "components/movie-card";
-import { Context } from "data/store";
+import { AppContext } from "data/store";
 import styles from "./index.module.css";
 
 export const SearchResultMovieSectionContent = () => {
   const [pageNum, setPageNum] = useState(1);
-  const {state} = useContext(Context);
+  const {state} = useContext(AppContext);
 
   const {
     isLoading,

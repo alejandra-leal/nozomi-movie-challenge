@@ -12,6 +12,14 @@ interface IMovieCardPops {
   movie: IMovie;
 }
 
+export const MovieCard2 = React.forwardRef<any, IMovieCardPops>(({movie}, ref) => {
+  const movieBody = <MovieCard key={movie.id + "card2"} movie={movie}/>
+
+  const content = ref ? <article ref={ref}>{movieBody}</article> : <article>{movieBody}</article>;
+
+  return content
+})
+
 export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
   const { state, dispatch } = useContext(Context);
   const isFavorite = state.favoriteMovies.get(movie.id);

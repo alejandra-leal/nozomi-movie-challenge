@@ -1,8 +1,8 @@
 import { API_KEY, ENDPOINT, ENDPOINT_DISCOVER, ENDPOINT_SEARCH } from "../constants";
 
 // TODO. add types
-export async function getMovies() {
-    const response = await fetch(ENDPOINT_DISCOVER);
+export async function getMovies(pagNum?: number, signal?: any) {
+    const response = await fetch(`${ENDPOINT_DISCOVER}&page=${pagNum}`);
     return response.json();
 }
 

@@ -8,7 +8,7 @@ describe("FavoritesMovieSection", () => {
   it("shows emptyListMessage when movie list array is empty", async () => {
     render(<FavoritesMovieSection />);
 
-    expect(screen.getByRole("contentinfo")).toBeInTheDocument();
+    expect(screen.getByTestId("empty-movie-list-msg")).toBeInTheDocument();
   });
   it("shows favorite movies", async () => {
     const movieId = 1;

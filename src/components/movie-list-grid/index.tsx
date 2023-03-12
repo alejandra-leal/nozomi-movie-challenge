@@ -16,7 +16,7 @@ export const MovieListGrid: React.FC<IMovieSearchSectionProps> = ({movies, secti
     </section>
     ) :
     (
-      <div role="contentinfo" className={styles.emptyListMessage}>
+      <div data-testid="empty-movie-list-msg" className={styles.emptyListMessage}>
         <h3>Nothing to see here.</h3>
          {sectionName && <p>Don't be shy, add a movie to your {sectionName} list!</p>}
         </div>

@@ -6,10 +6,11 @@ export const FavoritesMovieSection = () => {
   const { state } = useContext(AppContext);
 
   return (
-    <MovieListGrid
+    <section data-testid="favorites-movie-grid">
+      <MovieListGrid
         movies={Array.from(state.favoriteMovies.values())}
         sectionName="favorites"
       />
+    </section>
   );
 };
-

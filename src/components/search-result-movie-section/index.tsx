@@ -4,7 +4,7 @@ import { SearchResultMovieSectionContent } from "components/search-result-movie-
 export const SearchResultMovieSection = () => {
   return (
     <>
-      <section role="grid" id="movie-search-list">
+      <section  data-testid="search-movie-grid" role="grid" id="movie-search-list">
       <ul className={styles.list}>
         <SearchResultMovieSectionContent/>
       </ul>

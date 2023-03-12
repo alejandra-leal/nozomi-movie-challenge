@@ -23,6 +23,7 @@ export const SearchBar = () => {
         <input
           placeholder="Search for movies"
           className={styles.searchInput}
+          value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           disabled = {state.additionalSearchFilter !== AdditionalSearchFilter.None}
         />

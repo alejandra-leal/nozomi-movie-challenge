@@ -11,10 +11,8 @@ export const NavigationBar = () => {
             dispatch({ type: ActionTypes.SET_ADDITIONAL_FILTER, payload: AdditionalSearchFilter.None });
 
         } else {
-        dispatch({ type: ActionTypes.SET_ADDITIONAL_FILTER, payload: additionalFilter });
-
+            dispatch({ type: ActionTypes.SET_ADDITIONAL_FILTER, payload: additionalFilter });
         }
-        // TODO: reset query search here.
     };
 
     return (

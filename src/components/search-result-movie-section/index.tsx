@@ -12,6 +12,7 @@ export const SearchResultMovieSection = () => {
       !state.searchQuery &&
       state.additionalSearchFilter === AdditionalSearchFilter.None
     ) {
+    
       fetchMovies(ENDPOINT_DISCOVER).then((response) => {
         setMovies(response.results);
       });

@@ -63,6 +63,7 @@ export const stateReducer = (state: IState, action: Actions): IState => {
       return {
         ...state,
         additionalSearchFilter: action.payload,
+        searchQuery: ""
       };
     }
     case ActionTypes.SET_SEARCH_QUERY: {
@@ -100,7 +101,6 @@ export const stateReducer = (state: IState, action: Actions): IState => {
       };
     }
     default:
-      console.log("leal here at default return of reducer!!!", action);
       return state;
   }
 };

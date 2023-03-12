@@ -33,7 +33,7 @@ export const SearchBar = () => {
           onClick={() => handleSearch(searchQuery)}
           disabled={state.additionalSearchFilter !== AdditionalSearchFilter.None}
         >
-          <SearchIcon color="gray" />
+          <SearchIcon color="#A8534B" />
         </button>
       </div>
     </div>

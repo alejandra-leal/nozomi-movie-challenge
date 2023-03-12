@@ -4,7 +4,7 @@ import {render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 test('loads and displays check icon', async () => {
-  render(<CheckIcon color="gray" />)
+  render(<CheckIcon color="#A8534B" />)
 
   expect(screen.getByRole("img")).toBeInTheDocument();
 })

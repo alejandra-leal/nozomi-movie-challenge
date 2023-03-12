@@ -27,3 +27,17 @@
 .selected {
     color:  var(--color-desert-sun);
 }
+
+.counter {
+    background:var(--color-coral);
+    border-radius:50%;
+    height:15px;
+    width: 15px;
+    font-size: 10px;
+    line-height: 15px;
+    display: inline-block;
+    text-align: center;
+    color: var(--color-cream);
+    padding: 1px;
+    margin: 2px;
+}

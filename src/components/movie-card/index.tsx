@@ -13,7 +13,7 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(
     const { state, dispatch } = useContext(AppContext);
     const isFavorite = state.favoriteMovies.get(movie.id);
     const isWatchLater = state.watchLaterMovies.get(movie.id);
-    const iconColor = "gray";
+    const iconColor = "#A8534B";
     const favSelectedIconColor = "red";
     const watchLaterSelectedIconColor = "green";
 

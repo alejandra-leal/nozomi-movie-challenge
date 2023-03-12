@@ -26,15 +26,17 @@
     outline: none;
     font-size: .9em;
     color: var(--icon-color);
+    margin-left: 20px;
 }
 ::placeholder{
-    color: var(--icon-color)
+    color: var(--color-coral)
 }
 
 .searchButton{
     background: none;
     border: none;
     cursor: pointer;
+    margin-right: 10px;
 }
 .searchInput:disabled, .searchButton:disabled{
     opacity: .1;

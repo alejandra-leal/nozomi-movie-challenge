@@ -8,13 +8,15 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  font-family: "Roboto";
+  color: var(--color-coral);
 }
 
 .modalContainer {
-  min-width: 80%;
+  min-width: 60%;
   min-height: 60%;
   border-radius: 12px;
-  background-color: white;
+  background-color: var(--color-cream);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;

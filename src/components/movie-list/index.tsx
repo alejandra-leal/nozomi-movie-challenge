@@ -33,8 +33,3 @@ export const MovieListSection: React.FC<IMovieSearchSectionProps> = ({movies, se
     
   );
 };
-
-export const fetchMovies = async (apiUrl: string) => {
-  const response = await fetch(apiUrl);
-  return response.json();
-};

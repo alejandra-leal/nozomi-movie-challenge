@@ -19,8 +19,3 @@ export const MovieSectionPicker = () => {
     }
   })();
 };
-
-export const fetchMovies = async (apiUrl: string) => {
-  const response = await fetch(apiUrl);
-  return response.json();
-};

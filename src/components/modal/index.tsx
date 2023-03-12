@@ -30,8 +30,3 @@ export const Modal: React.FC<IModalProps> = ({ closeModal, children, title }) =>
     </div>
   );
 };
-
-export const fetchMovieTrailer = async (apiUrl: string) => {
-  const response = await fetch(apiUrl);
-  return response.json();
-};

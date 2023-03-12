@@ -21,7 +21,7 @@ export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }
 
   return (
     <Modal title={movie.title} closeModal={closeModal}  >
-      <YoutubePlayer videoKey={videoKey} />
+      <YoutubePlayer data-testid="youtube-player" videoKey={videoKey} />
     </Modal>
     
   );

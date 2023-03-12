@@ -1,15 +1,16 @@
 import React from "react";
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player";
 
-export const YoutubePlayer: React.FC<IYoutubePlayer> = ({ videoKey }) => (<ReactPlayer 
-    className="video-player" 
-    url={`https://www.youtube.com/watch?v=${videoKey}`} 
+export const YoutubePlayer: React.FC<IYoutubePlayer> = ({ videoKey }) => (
+  <ReactPlayer
+    className="video-player"
+    url={`https://www.youtube.com/watch?v=${videoKey}`}
     controls={true}
     playing={true}
-    data-testid="youtube-player"
-  />);
+    data-testid="movie-trailer-player"
+  />
+);
 
-  interface IYoutubePlayer {
-    videoKey: string
+interface IYoutubePlayer {
+  videoKey: string;
 }
-  

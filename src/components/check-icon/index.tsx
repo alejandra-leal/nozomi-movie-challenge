@@ -1,9 +1,5 @@
 import React from "react";
 
-interface IProps {
-  color: string;
-}
-
 export const CheckIcon: React.FC<IProps> = ({ color }) => {
   return (
     <svg
@@ -28,3 +24,7 @@ export const CheckIcon: React.FC<IProps> = ({ color }) => {
     </svg>
   );
 };
+
+interface IProps {
+  color: string;
+}

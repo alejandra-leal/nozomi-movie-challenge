@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import { Header } from "./components/header";
 import { NavigationBar } from "./components/navigation-bar";
 import { SearchBar } from "./components/search-bar";
-import { stateReducer, initialState, Context, ActionTypes } from "./data/store";
+import { stateReducer, initialState, Context, ActionType } from "./data/store";
 import { MovieSectionPicker } from "components/movie-section-picker";
 import { TrailerModal } from "components/trailer-modal";
 
@@ -11,7 +11,7 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   const closeModal = () => {
     dispatch({
-      type: ActionTypes.SET_MOVIE_MODAL,
+      type: ActionType.SET_MOVIE_MODAL,
       payload: null,
     });
   };

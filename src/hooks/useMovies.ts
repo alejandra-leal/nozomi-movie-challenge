@@ -1,5 +1,5 @@
 import { getMovies } from 'api/movies';
-import { IMovie } from 'data/store';
+import { IMovie } from 'models/movie';
 import { useState, useEffect} from 'react';
 
 const useMovies = (searchQuery:string, pageNum =1) => {

@@ -1,16 +1,12 @@
 import { IMG_URL_BASE } from "../../constants";
-import { IMovie } from "data/store";
 import React from "react";
 import { AddIcon } from "../add-icon";
 import { FavoriteIcon } from "../favorite-icon";
-import { Context, ActionTypes } from "data/store";
+import { Context, ActionType } from "data/store";
 import { useContext } from "react";
 import styles from "./index.module.css";
 import { CheckIcon } from "components/check-icon";
-
-interface IMovieCardPops {
-  movie: IMovie;
-}
+import { IMovie } from "models/movie";
 
 export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) => {
   const { state, dispatch } = useContext(Context);
@@ -20,7 +16,7 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) =>
   const favSelectedIconColor = "red";
   const watchLaterSelectedIconColor = "green";
 
-  const handleClick = (action: ActionTypes.HANDLE_FAVORITES | ActionTypes.HANDLE_WATCH_LATER, shouldRemove: boolean) => {
+  const handleClick = (action: ActionType.HANDLE_FAVORITES | ActionType.HANDLE_WATCH_LATER, shouldRemove: boolean) => {
     dispatch({
             type: action,
             payload: {
@@ -31,7 +27,7 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) =>
   };
   const handleOpenModal = () => {
     dispatch({
-      type: ActionTypes.SET_MOVIE_MODAL,
+      type: ActionType.SET_MOVIE_MODAL,
       payload: movie
     });
   }
@@ -61,7 +57,7 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) =>
         <button
           className={styles.iconButton}
           onClick={() => {
-            handleClick(ActionTypes.HANDLE_FAVORITES, !!isFavorite);
+            handleClick(ActionType.HANDLE_FAVORITES, !!isFavorite);
           }}
         >
           <FavoriteIcon color={isFavorite ? favSelectedIconColor : iconColor} />
@@ -69,7 +65,7 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) =>
         <button
           className={styles.iconButton}
           onClick={() => {
-            handleClick(ActionTypes.HANDLE_WATCH_LATER, !!isWatchLater);
+            handleClick(ActionType.HANDLE_WATCH_LATER, !!isWatchLater);
           }}
         >
           {isWatchLater ? (
@@ -81,4 +77,8 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) =>
       </div>
     </article>
   );
-})
+});
+
+interface IMovieCardPops {
+  movie: IMovie;
+}

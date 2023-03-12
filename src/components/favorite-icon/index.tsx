@@ -1,9 +1,5 @@
 import React from "react";
 
-interface IProps {
-  color: string;
-}
-
 export const FavoriteIcon: React.FC<IProps> = ({ color }) => {
   return (
     <svg
@@ -23,3 +19,7 @@ export const FavoriteIcon: React.FC<IProps> = ({ color }) => {
     </svg>
   );
 };
+
+interface IProps {
+  color: string;
+}

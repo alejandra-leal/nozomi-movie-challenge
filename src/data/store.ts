@@ -1,18 +1,7 @@
+import { AdditionalSearchFilter } from "models/additional-search-filter";
+import { IState } from "models/app-state";
+import { IAddMoviePayload, IMovie } from "models/movie";
 import React, { Dispatch } from "react";
-// TODO: extract interfaces to a model file or something
-export enum AdditionalSearchFilter {
-  None = "NONE",
-  Starred = "STARRED",
-  WatchLater = "WATCH_LATER",
-}
-
-export interface IState {
-  additionalSearchFilter: AdditionalSearchFilter;
-  searchQuery: string;
-  favoriteMovies: Map<Number, IMovie>;
-  watchLaterMovies: Map<Number, IMovie>;
-  movieModal: IMovie | null;
-}
 
 export const initialState: IState = {
   additionalSearchFilter: AdditionalSearchFilter.None,
@@ -22,19 +11,7 @@ export const initialState: IState = {
   movieModal: null
 };
 
-export interface IMovie {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
-}
-
-interface IAddMoviePayload {
-  movie: IMovie
-  shouldRemove: boolean
-}
-
-export enum ActionTypes {
+export enum ActionType {
   SET_ADDITIONAL_FILTER = "SET_ADDITIONAL_FILTER",
   SET_SEARCH_QUERY = "SET_SEARCH_QUERY",
   HANDLE_FAVORITES = "HANDLE_FAVORITES",
@@ -44,13 +21,13 @@ export enum ActionTypes {
 
 type Actions =
   | {
-      type: ActionTypes.SET_ADDITIONAL_FILTER;
+      type: ActionType.SET_ADDITIONAL_FILTER;
       payload: AdditionalSearchFilter;
     }
-  | { type: ActionTypes.SET_SEARCH_QUERY; payload: string }
-  | { type: ActionTypes.HANDLE_FAVORITES; payload: IAddMoviePayload }
-  | { type: ActionTypes.HANDLE_WATCH_LATER; payload: IAddMoviePayload }
-  | { type: ActionTypes.SET_MOVIE_MODAL; payload: IMovie | null }
+  | { type: ActionType.SET_SEARCH_QUERY; payload: string }
+  | { type: ActionType.HANDLE_FAVORITES; payload: IAddMoviePayload }
+  | { type: ActionType.HANDLE_WATCH_LATER; payload: IAddMoviePayload }
+  | { type: ActionType.SET_MOVIE_MODAL; payload: IMovie | null }
 
 export const Context = React.createContext<{
   state: IState;
@@ -59,20 +36,20 @@ export const Context = React.createContext<{
 
 export const stateReducer = (state: IState, action: Actions): IState => {
   switch (action.type) {
-    case ActionTypes.SET_ADDITIONAL_FILTER: {
+    case ActionType.SET_ADDITIONAL_FILTER: {
       return {
         ...state,
         additionalSearchFilter: action.payload,
         searchQuery: ""
       };
     }
-    case ActionTypes.SET_SEARCH_QUERY: {
+    case ActionType.SET_SEARCH_QUERY: {
       return {
         ...state,
         searchQuery: action.payload,
       };
     }
-    case ActionTypes.HANDLE_FAVORITES: {
+    case ActionType.HANDLE_FAVORITES: {
       const movieId = action.payload.movie.id;
       if(action.payload.shouldRemove) {
         state.favoriteMovies.delete(movieId);
@@ -83,7 +60,7 @@ export const stateReducer = (state: IState, action: Actions): IState => {
         ...state,
       };
     }
-    case ActionTypes.HANDLE_WATCH_LATER: {
+    case ActionType.HANDLE_WATCH_LATER: {
       const movieId = action.payload.movie.id;
       if(action.payload.shouldRemove) {
         state.watchLaterMovies.delete(movieId);
@@ -94,7 +71,7 @@ export const stateReducer = (state: IState, action: Actions): IState => {
         ...state,
       };
     }
-    case ActionTypes.SET_MOVIE_MODAL: {
+    case ActionType.SET_MOVIE_MODAL: {
       return {
         ...state,
         movieModal: action.payload,

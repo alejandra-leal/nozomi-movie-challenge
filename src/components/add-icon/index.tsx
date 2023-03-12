@@ -1,9 +1,5 @@
 import React from "react";
 
-interface IProps {
-  color: string;
-}
-
 export const AddIcon: React.FC<IProps> = ({ color }) => {
   return (
     <svg
@@ -35,3 +31,7 @@ export const AddIcon: React.FC<IProps> = ({ color }) => {
     </svg>
   );
 };
+
+interface IProps {
+  color: string;
+}

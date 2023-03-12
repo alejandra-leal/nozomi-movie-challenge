@@ -1,17 +1,18 @@
 import React from "react";
-import { Context, ActionTypes, AdditionalSearchFilter } from "data/store";
+import { Context, ActionType } from "data/store";
 import { useContext } from "react";
 import styles from "./index.module.css";
+import { AdditionalSearchFilter } from "models/additional-search-filter";
 
 export const NavigationBar = () => {
     const { state, dispatch } = useContext(Context);
 
     const setAdditionalFilter = (additionalFilter: AdditionalSearchFilter) => {
         if (state.additionalSearchFilter === additionalFilter) {
-            dispatch({ type: ActionTypes.SET_ADDITIONAL_FILTER, payload: AdditionalSearchFilter.None });
+            dispatch({ type: ActionType.SET_ADDITIONAL_FILTER, payload: AdditionalSearchFilter.None });
 
         } else {
-            dispatch({ type: ActionTypes.SET_ADDITIONAL_FILTER, payload: additionalFilter });
+            dispatch({ type: ActionType.SET_ADDITIONAL_FILTER, payload: additionalFilter });
         }
     };
 

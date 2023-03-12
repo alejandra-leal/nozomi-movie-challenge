@@ -1,12 +1,5 @@
 import styles from "./index.module.css";
 
-interface IModalProps {
-  children: React.ReactNode;
-  closeModal: () => void;
-  title: string;
-}
-
-
 export const Modal: React.FC<IModalProps> = ({ closeModal, children, title }) => {
   return (
     <div className={styles.container}>
@@ -30,3 +23,9 @@ export const Modal: React.FC<IModalProps> = ({ closeModal, children, title }) =>
     </div>
   );
 };
+
+interface IModalProps {
+  children: React.ReactNode;
+  closeModal: () => void;
+  title: string;
+}

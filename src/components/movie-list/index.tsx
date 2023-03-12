@@ -1,14 +1,7 @@
+import { IMovie } from "models/movie";
 import React from "react";
 import { MovieCard } from "../movie-card";
 import styles from "./index.module.css";
-import { IMovie } from "data/store";
-
-
-interface IMovieSearchSectionProps {
-    movies: IMovie[],
-    sectionName?: string
-  }
-  
 
 export const MovieListSection: React.FC<IMovieSearchSectionProps> = ({movies, sectionName}) => {
   return (
@@ -33,3 +26,8 @@ export const MovieListSection: React.FC<IMovieSearchSectionProps> = ({movies, se
     
   );
 };
+
+interface IMovieSearchSectionProps {
+  movies: IMovie[],
+  sectionName?: string
+}

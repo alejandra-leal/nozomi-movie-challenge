@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SearchIcon } from "../search-icon";
 import styles from "./index.module.css";
-import { Context, ActionTypes, AdditionalSearchFilter } from "data/store";
+import { Context, ActionType } from "data/store";
+import { AdditionalSearchFilter } from "models/additional-search-filter";
 
 export const SearchBar = () => {
   const { state, dispatch } = useContext(Context);
@@ -12,7 +13,7 @@ export const SearchBar = () => {
 
   const handleSearch = (searchQuery: string) => {
     dispatch({
-      type: ActionTypes.SET_SEARCH_QUERY,
+      type: ActionType.SET_SEARCH_QUERY,
       payload: searchQuery,
     });
   };

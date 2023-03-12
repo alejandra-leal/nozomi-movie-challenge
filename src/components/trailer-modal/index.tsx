@@ -1,24 +1,8 @@
-import { IMovie } from "../../data/store";
 import React, { useEffect, useState } from "react";
 import { YoutubePlayer } from "components/youtube-player";
 import { Modal } from "components/modal";
 import { getMovieTrailer } from "api/movies";
-
-interface ITrailerModalProps {
-  movie: IMovie;
-  closeModal: () => void;
-}
-interface IVideoMovieResponse {
-  videos: IVideoResults;
-}
-interface IVideoResults {
-  results: IVideoResult[];
-}
-
-interface IVideoResult {
-  type: string;
-  key: string;
-}
+import { IMovie } from "models/movie";
 
 export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }) => {
   const [videoKey, setVideoKey] = useState("");
@@ -42,3 +26,19 @@ export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }
     
   );
 };
+
+interface ITrailerModalProps {
+  movie: IMovie;
+  closeModal: () => void;
+}
+interface IVideoMovieResponse {
+  videos: IVideoResults;
+}
+interface IVideoResults {
+  results: IVideoResult[];
+}
+
+interface IVideoResult {
+  type: string;
+  key: string;
+}

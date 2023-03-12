@@ -3,7 +3,7 @@ import React from "react";
 import { MovieCard } from "../movie-card";
 import styles from "./index.module.css";
 
-export const MovieListSection: React.FC<IMovieSearchSectionProps> = ({movies, sectionName}) => {
+export const MovieListGrid: React.FC<IMovieSearchSectionProps> = ({movies, sectionName}) => {
   return (
     <>
     {movies.length ? (
@@ -16,7 +16,7 @@ export const MovieListSection: React.FC<IMovieSearchSectionProps> = ({movies, se
     </section>
     ) :
     (
-      <div className={styles.emptyListMessage}>
+      <div role="contentinfo" className={styles.emptyListMessage}>
         <h3>Nothing to see here.</h3>
          {sectionName && <p>Don't be shy, add a movie to your {sectionName} list!</p>}
         </div>

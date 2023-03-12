@@ -15,7 +15,6 @@ const useMovies = (searchQuery:string, pageNum =1) => {
         setIsError(false);
         setError({});
 
-        // abort controller will cancel the request when the component unmounts
         const controller = new AbortController();
         const {signal} = controller;
         getMovies(searchQuery, pageNum, {signal}).then(response => {
@@ -33,6 +32,7 @@ const useMovies = (searchQuery:string, pageNum =1) => {
             setIsLoading(false);
             // Aborted errors can be ignored, as it was created on purpose.
             if(signal.aborted) return;
+            
             setIsError(true);
             setError({message: e.message});
         });

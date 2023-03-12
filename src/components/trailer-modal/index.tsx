@@ -1,8 +1,8 @@
 import { IMovie } from "../../data/store";
 import React, { useEffect, useState } from "react";
-import styles from "./index.module.css";
 import { ENDPOINT, API_KEY } from "../../constants";
 import { YoutubePlayer } from "components/youtube-player";
+import { Modal } from "components/modal";
 
 interface ITrailerModalProps {
   movie: IMovie;
@@ -33,29 +33,13 @@ export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }
         setVideoKey(trailer ? trailer.key : response.videos.results[0].key);
       }
     });
-  }, []);
+  }, [movie.id]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.modalContainer}>
-        <div className={styles.titleCloseBtn}>
-          <button
-            onClick={() => {
-              closeModal();
-            }}
-          >
-            {" "}
-            X{" "}
-          </button>
-        </div>
-        <div className={styles.title}>
-          <h1>{movie.title}</h1>
-        </div>
-        <div className={styles.body}>
-          <YoutubePlayer videoKey={videoKey} />
-        </div>
-      </div>
-    </div>
+    <Modal title={movie.title} closeModal={closeModal}  >
+      <YoutubePlayer videoKey={videoKey} />
+    </Modal>
+    
   );
 };
 

@@ -1,13 +1,12 @@
 import { IMG_URL_BASE } from "../../constants";
 import { IMovie } from "data/store";
-import React, { useState } from "react";
+import React from "react";
 import { AddIcon } from "../add-icon";
 import { FavoriteIcon } from "../favorite-icon";
 import { Context, ActionTypes } from "data/store";
 import { useContext } from "react";
 import styles from "./index.module.css";
 import { CheckIcon } from "components/check-icon";
-import { TrailerModal } from "components/trailer-modal";
 
 
 interface IMovieCardPops {

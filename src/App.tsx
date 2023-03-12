@@ -22,7 +22,7 @@ function App() {
   return (
     <Context.Provider value={{ state, dispatch }}>
       {openModal && state.movieModal && (
-        <TrailerModal movie={state.movieModal} closeModal={closeModal} />
+        <TrailerModal movie={state.movieModal} closeModal={closeModal}/>
       )}
       <Header />
       <NavigationBar />

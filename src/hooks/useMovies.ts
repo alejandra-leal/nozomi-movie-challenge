@@ -8,7 +8,7 @@ const useMovies = (pageNum =1) => {
     const [isError, setIsError] = useState(false);
     const [error, setError] = useState({});
     const [hasNextPage, setHasNextPage] = useState(false);
-    
+
     useEffect(() => {
         // Reset values
         setIsLoading(true);

@@ -12,15 +12,7 @@ interface IMovieCardPops {
   movie: IMovie;
 }
 
-export const MovieCard2 = React.forwardRef<any, IMovieCardPops>(({movie}, ref) => {
-  const movieBody = <MovieCard key={movie.id + "card2"} movie={movie}/>
-
-  const content = ref ? <article ref={ref}>{movieBody}</article> : <article>{movieBody}</article>;
-
-  return content
-})
-
-export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
+export const MovieCard = React.forwardRef<any, IMovieCardPops>(({movie}, ref) => {
   const { state, dispatch } = useContext(Context);
   const isFavorite = state.favoriteMovies.get(movie.id);
   const isWatchLater = state.watchLaterMovies.get(movie.id);
@@ -44,6 +36,7 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
     });
   }
   return (
+    <article ref={ref}>
     <div className={styles.movie}>
       <div className={styles.descriptionContainer}>
         <div className={styles.description}>
@@ -88,5 +81,6 @@ export const MovieCard: React.FC<IMovieCardPops> = ({ movie }) => {
         </button>
       </div>
     </div>
+    </article>
   );
-};
+})

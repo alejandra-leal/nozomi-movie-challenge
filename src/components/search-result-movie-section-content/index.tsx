@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import useMovies from '../../hooks/useMovies';
-import { MovieCard2 } from "components/movie-card";
+import { MovieCard } from "components/movie-card";
 
 export const SearchResultMovieSectionContent = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -8,7 +8,6 @@ export const SearchResultMovieSectionContent = () => {
   const {
     isLoading,
     isError,
-    error,
     movieResults,
     hasNextPage 
   } = useMovies(pageNum);
@@ -38,9 +37,9 @@ export const SearchResultMovieSectionContent = () => {
   const content = movieResults.map((movie, i) => {
     // If is last element
     if(movieResults.length === i + 1) {
-      return <MovieCard2 ref={lastMovieRef} key={movie.id} movie={movie} />
+      return <MovieCard ref={lastMovieRef} key={movie.id} movie={movie} />
     }
-    return <MovieCard2 key={movie.id} movie={movie} />
+    return <MovieCard key={movie.id} movie={movie} />
    
 
   })

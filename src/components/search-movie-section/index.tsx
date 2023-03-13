@@ -5,7 +5,7 @@ import { AppContext } from "context/store";
 import styles from "./index.module.css";
 import { CustomGrid } from "common/custom-grid";
 
-export const SearchResultMovieSection = () => {
+export const SearchMovieSection = () => {
   const [pageNum, setPageNum] = useState(1);
   const { state } = useContext(AppContext);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from ".";
+import { CustomModal } from ".";
 import { render, screen } from "../../utils/test-helper";
 import userEvent from "@testing-library/user-event";
 import { initialState } from "context/store";
@@ -7,9 +7,9 @@ import { initialState } from "context/store";
 describe("Modal", () => {
   it("shows modal with custom body", async () => {
     render(<>
-        <Modal closeModal={() => {}} title="Modal Title">
+        <CustomModal closeModal={() => {}} title="Modal Title">
             <h3 role="dialog">This is the modal content</h3>
-        </Modal>
+        </CustomModal>
     </>, initialState);
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
@@ -18,9 +18,9 @@ describe("Modal", () => {
     const user = userEvent.setup();
     const onClose = jest.fn();
     render(<>
-        <Modal closeModal={onClose} title="Modal Title">
+        <CustomModal closeModal={onClose} title="Modal Title">
             <h3 role="dialog">This is the modal content</h3>
-        </Modal>
+        </CustomModal>
     </>, initialState);
 
     await user.click(screen.getByRole("button"));

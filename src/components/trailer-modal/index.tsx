@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { YoutubePlayer } from "components/youtube-player";
 import { getMovieTrailer } from "api/movies";
 import { IMovie } from "models/movie";
-import { Modal } from "common/modal";
+import { CustomModal } from "common/custom-modal";
 
 export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }) => {
   const [videoKey, setVideoKey] = useState("");
@@ -20,9 +20,9 @@ export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }
   }, [movie.id]);
 
   return (
-    <Modal title={movie.title} closeModal={closeModal}  >
+    <CustomModal title={movie.title} closeModal={closeModal}  >
       <YoutubePlayer data-testid="youtube-player" videoKey={videoKey} />
-    </Modal>
+    </CustomModal>
     
   );
 };

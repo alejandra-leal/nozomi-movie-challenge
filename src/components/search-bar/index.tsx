@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { SearchIcon } from "../search-icon";
+import { SearchIcon } from "../../common/search-icon";
 import styles from "./index.module.css";
 import { AppContext, ActionType } from "context/store";
 import { AdditionalSearchFilter } from "models/additional-search-filter";

@@ -1,11 +1,9 @@
 @import "../../vars.css";
 
-.list {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 2px;
-    grid-auto-rows: 1fr;
-    list-style: none;
-    justify-items: center;
+.loading {
+    color: var(--color-coral);
+    font-family: "Montserrat";
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

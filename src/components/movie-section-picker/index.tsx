@@ -2,8 +2,8 @@ import { AppContext } from "context/store";
 import { useContext } from "react";
 import { FavoritesMovieSection } from "components/favorites-movie-section";
 import { WatchLaterMovieSection } from "components/watch-later-movie-section";
-import { SearchResultMovieSection } from "components/search-result-movie-section";
 import { AdditionalSearchFilter } from "models/additional-search-filter";
+import { SearchResultMovieSection } from "components/search-result-movie-section";
 
 export const MovieSectionPicker = () => {
   const { state } = useContext(AppContext);

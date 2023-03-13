@@ -3,6 +3,7 @@ import React from "react";
 export const CheckIcon: React.FC<IProps> = ({ color }) => {
   return (
     <svg
+    data-testid="check-icon"
       width="24px"
       height="24px"
       viewBox="0 0 24 24"

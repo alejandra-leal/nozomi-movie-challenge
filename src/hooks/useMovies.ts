@@ -2,7 +2,7 @@ import { getMovies } from 'api/movies';
 import { IMovie } from 'models/movie';
 import { useState, useEffect} from 'react';
 
-const useMovies = (searchQuery:string, pageNum =1) => {
+export const useMovies = (searchQuery:string, pageNum =1): IUseMoviesResponse => {
     const [movieResults, setMovieResults] = useState<IMovie[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
@@ -51,4 +51,10 @@ const useMovies = (searchQuery:string, pageNum =1) => {
 
 }
 
-export default useMovies;
+interface IUseMoviesResponse {
+        isLoading: boolean,
+        isError: boolean
+        error: {}
+        movieResults: IMovie[]
+        hasNextPage: boolean
+}

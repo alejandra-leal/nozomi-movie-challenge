@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useContext, useEffect } from "react";
-import useMovies from "../../hooks/useMovies";
+import {useMovies} from "../../hooks/useMovies";
 import { MovieCard } from "components/movie-card";
 import { AppContext } from "context/store";
 import styles from "./index.module.css";

@@ -52,7 +52,7 @@ export const NavigationBar = () => {
         {navigationLinks.map((navLink, index) => {
           return (
             <NavigationLink
-            key={index}
+              key={index}
               onClick={navLink.onClick}
               isSelected={navLink.isSelected}
               text={navLink.text}

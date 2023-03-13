@@ -3,6 +3,7 @@ import React from "react";
 export const AddIcon: React.FC<IProps> = ({ color }) => {
   return (
     <svg
+    data-testid="add-icon"
       width="24"
       height="24"
       viewBox="0 0 24 24"

@@ -3,6 +3,7 @@ import React from "react";
 export const FavoriteIcon: React.FC<IProps> = ({ color }) => {
   return (
     <svg
+      data-testid="favorite-icon"
       width="24"
       height="24"
       viewBox="0 0 24 24"

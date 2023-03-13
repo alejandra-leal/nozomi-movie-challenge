@@ -1,7 +1,7 @@
 import React from "react";
 import { MovieSectionPicker } from ".";
 import { render, screen } from "../../utils/test-helper";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 import { AdditionalSearchFilter } from "models/additional-search-filter";
 
 describe("MovieSectionPicker", () => {

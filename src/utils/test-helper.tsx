@@ -1,5 +1,5 @@
 import { render, renderHook, RenderOptions } from "@testing-library/react";
-import { AppContext, initialState } from "data/store";
+import { AppContext, initialState } from "context/store";
 import { IAppContext } from "models/app-context";
 import { ReactElement, JSXElementConstructor } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";

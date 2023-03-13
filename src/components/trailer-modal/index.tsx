@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { YoutubePlayer } from "components/youtube-player";
-import { Modal } from "components/modal";
 import { getMovieTrailer } from "api/movies";
 import { IMovie } from "models/movie";
+import { Modal } from "common/modal";
 
 export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }) => {
   const [videoKey, setVideoKey] = useState("");

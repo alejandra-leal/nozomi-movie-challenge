@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SearchIcon } from "../search-icon";
 import styles from "./index.module.css";
-import { AppContext, ActionType } from "data/store";
+import { AppContext, ActionType } from "context/store";
 import { AdditionalSearchFilter } from "models/additional-search-filter";
 
 export const SearchBar = () => {

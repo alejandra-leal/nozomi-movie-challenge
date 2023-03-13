@@ -1,12 +1,12 @@
 import { DEFAULT_MOVIE_POSTER, IMG_URL_BASE } from "../../constants";
 import React from "react";
-import { AddIcon } from "../add-icon";
-import { FavoriteIcon } from "../favorite-icon";
-import { AppContext, ActionType } from "data/store";
+import { AppContext, ActionType } from "context/store";
 import { useContext } from "react";
 import styles from "./index.module.css";
-import { CheckIcon } from "components/check-icon";
 import { IMovie } from "models/movie";
+import { AddIcon } from "common/add-icon";
+import { CheckIcon } from "common/check-icon";
+import { FavoriteIcon } from "common/favorite-icon";
 
 export const MovieCard = React.forwardRef<any, IMovieCardPops>(
   ({ movie }, ref) => {

@@ -1,4 +1,4 @@
-import { AppContext } from "data/store";
+import { AppContext } from "context/store";
 import { useContext } from "react";
 import { FavoritesMovieSection } from "components/favorites-movie-section";
 import { WatchLaterMovieSection } from "components/watch-later-movie-section";

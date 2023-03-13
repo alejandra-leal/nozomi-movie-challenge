@@ -1,7 +1,7 @@
 import React from "react";
 import { MovieCard } from ".";
 import { render, screen } from "../../utils/test-helper";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 import { IMovie } from "models/movie";
 import { DEFAULT_MOVIE_POSTER, IMG_URL_BASE } from "../../constants";
 

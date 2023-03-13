@@ -2,7 +2,7 @@ import React from "react";
 import { Modal } from ".";
 import { render, screen } from "../../utils/test-helper";
 import userEvent from "@testing-library/user-event";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 
 describe("Modal", () => {
   it("shows modal with custom body", async () => {

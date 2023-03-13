@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import { AppHeader } from "./components/app-header";
 import { NavigationBar } from "./components/navigation-bar";
 import { SearchBar } from "./components/search-bar";
-import { stateReducer, initialState, AppContext, ActionType } from "./data/store";
+import { stateReducer, initialState, AppContext, ActionType } from "./context/store";
 import { MovieSectionPicker } from "components/movie-section-picker";
 import { TrailerModal } from "components/trailer-modal";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { SearchBar } from ".";
 import { render, screen } from "../../utils/test-helper";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 
 describe("SearchBar", () => {
   it("shows search input", async () => {

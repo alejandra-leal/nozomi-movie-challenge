@@ -1,7 +1,7 @@
 import React from "react";
 import { WatchLaterMovieSection } from ".";
 import { render, screen } from "../../utils/test-helper";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 import { IMovie } from "models/movie";
 
 describe("WatchLaterMovieSection", () => {

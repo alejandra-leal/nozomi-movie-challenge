@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationBar } from ".";
 import { render, screen } from "../../utils/test-helper";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 
 describe("NavigationBar", () => {
   it("shows navigation links", async () => {

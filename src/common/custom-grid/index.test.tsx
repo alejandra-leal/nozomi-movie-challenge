@@ -1,10 +1,10 @@
 import React from "react";
-import { MovieListGrid } from ".";
+import { CustomGrid } from ".";
 import { render, screen } from "../../utils/test-helper";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 import { IMovie } from "models/movie";
 
-describe("MovieListGrid", () => {
+describe("CustomGrid", () => {
   it("shows movie grid", async () => {
     const movies: IMovie[] = [
       {
@@ -15,7 +15,7 @@ describe("MovieListGrid", () => {
       }
     ];
     render(<>
-        <MovieListGrid movies={movies}/>
+        <CustomGrid/>
     </>, initialState);
 
     expect(screen.getByRole("grid")).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe("MovieListGrid", () => {
   it("shows empty message when movies array is empty", async () => {
     const movies: IMovie[] = [];
     render(<>
-        <MovieListGrid movies={movies}/>
+        <CustomGrid/>
     </>, initialState);
 
     expect(screen.getByTestId("empty-movie-list-msg")).toBeInTheDocument();

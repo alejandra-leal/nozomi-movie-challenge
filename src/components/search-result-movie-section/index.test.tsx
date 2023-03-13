@@ -1,7 +1,7 @@
 import React from "react";
 import { SearchResultMovieSection } from ".";
 import { render, screen } from "../../utils/test-helper";
-import { initialState } from "data/store";
+import { initialState } from "context/store";
 
 describe("SearchResultMovieSection", () => {
   it("shows search movie grid", async () => {

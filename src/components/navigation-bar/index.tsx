@@ -1,5 +1,5 @@
 import React from "react";
-import { AppContext, ActionType } from "data/store";
+import { AppContext, ActionType } from "context/store";
 import { useContext } from "react";
 import styles from "./index.module.css";
 import { AdditionalSearchFilter } from "models/additional-search-filter";

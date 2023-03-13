@@ -14,20 +14,6 @@
 
 }
 
-.navItem {
-    color: var(--color-peach);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: "Verdana";
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-.selected {
-    color:  var(--color-desert-sun);
-}
-
 .counter {
     background:var(--color-coral);
     border-radius:50%;

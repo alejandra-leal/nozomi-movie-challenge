@@ -4,7 +4,7 @@ import { render, screen } from "../../utils/test-helper";
 import userEvent from "@testing-library/user-event";
 import { initialState } from "context/store";
 
-describe("Modal", () => {
+describe("CustomModal", () => {
   it("shows modal with custom body", async () => {
     render(<>
         <CustomModal closeModal={() => {}} title="Modal Title">

@@ -18,6 +18,7 @@ describe("FavoritesMovieSection", () => {
       title: "Title 1",
       overview: "Description 1",
       poster_path: "/path/to/video",
+      release_date: ""
     });
     render(<FavoritesMovieSection />, {
       ...initialState,

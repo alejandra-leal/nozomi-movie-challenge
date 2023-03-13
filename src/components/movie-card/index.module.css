@@ -58,15 +58,6 @@
     display: flex;
     justify-content: space-between;
   }
-  .iconButton {
-    background: none;
-    border: none;
-    z-index: 3;
-    cursor: pointer;
-  }
-  .iconButton:hover{
-    transform: scale(1.05, 1.05);
-  }
   
   .movieImg {
     width: 100%;

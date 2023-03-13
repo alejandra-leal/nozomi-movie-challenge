@@ -11,7 +11,8 @@ describe("MovieCard", () => {
       id: 1,
       title: "Title 1",
       overview: "Description",
-      poster_path: "/img/path"
+      poster_path: "/img/path",
+      release_date: ""
     }
     render(<>
         <MovieCard  movie={dummyMovie} />
@@ -24,7 +25,8 @@ describe("MovieCard", () => {
       id: 1,
       title: "Title 1",
       overview: "Description",
-      poster_path: ""
+      poster_path: "",
+      release_date: ""
     }
     render(<>
         <MovieCard  movie={dummyMovie} />
@@ -36,7 +38,8 @@ describe("MovieCard", () => {
       id: 1,
       title: "Title 1",
       overview: "Description",
-      poster_path: "path/img"
+      poster_path: "path/img",
+      release_date: ""
     }
     render(<>
         <MovieCard  movie={dummyMovie} />

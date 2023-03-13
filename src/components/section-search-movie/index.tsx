@@ -61,6 +61,7 @@ export const SearchMovieSection = () => {
   });
 
   return (
+    <section data-testid="search-movie-grid">
     <CustomGrid>
       <>
         {content}
@@ -71,5 +72,6 @@ export const SearchMovieSection = () => {
         )}
       </>
     </CustomGrid>
+    </section>
   );
 };

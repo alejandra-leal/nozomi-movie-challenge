@@ -7,8 +7,7 @@ import { CustomModal } from "common/custom-modal";
 export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }) => {
   const [videoKey, setVideoKey] = useState("");
   useEffect(() => {
-    
-
+  
     getMovieTrailer(movie.id).then((response: IVideoMovieResponse) => {
       if (response.videos && response.videos.results.length) {
         const trailer = response.videos.results.find(
@@ -21,7 +20,7 @@ export const TrailerModal: React.FC<ITrailerModalProps> = ({ closeModal, movie }
 
   return (
     <CustomModal title={movie.title} closeModal={closeModal}  >
-      <YoutubePlayer data-testid="youtube-player" videoKey={videoKey} />
+      <YoutubePlayer videoKey={videoKey} />
     </CustomModal>
     
   );

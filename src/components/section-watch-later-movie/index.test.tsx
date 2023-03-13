@@ -8,7 +8,7 @@ describe("WatchLaterMovieSection", () => {
   it("shows emptyListMessage when movie list array is empty", async () => {
     render(<WatchLaterMovieSection />);
 
-    expect(screen.getByTestId("empty-movie-list-msg")).toBeInTheDocument();
+    expect(screen.getByTestId("empty-custom-grid-message")).toBeInTheDocument();
   });
   it("shows watch later movies", async () => {
     const movieId = 1;

@@ -49,9 +49,10 @@ export const NavigationBar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navItemsContainer}>
-        {navigationLinks.map((navLink) => {
+        {navigationLinks.map((navLink, index) => {
           return (
             <NavigationLink
+            key={index}
               onClick={navLink.onClick}
               isSelected={navLink.isSelected}
               text={navLink.text}

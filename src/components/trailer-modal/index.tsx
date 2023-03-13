@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { YoutubePlayer } from "components/youtube-player";
+import { YoutubePlayer } from "common/youtube-player";
 import { getMovieTrailer } from "api/movies";
 import { IMovie } from "models/movie";
 import { CustomModal } from "common/custom-modal";

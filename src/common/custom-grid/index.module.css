@@ -1,18 +1,18 @@
 @import "../../vars.css";
 
 .list {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 2px;
-    grid-auto-rows: 1fr;
-    list-style: none;
-    justify-items: center;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2px;
+  grid-auto-rows: 1fr;
+  list-style: none;
+  justify-items: center;
 }
 
 .emptyListMessage {
-    text-align: center;
-    font-family: 'Roboto';
-    margin-top: 50px;
-    color: var(--color-coral)
+  text-align: center;
+  font-family: "Roboto";
+  margin-top: 50px;
+  color: var(--color-coral);
 }

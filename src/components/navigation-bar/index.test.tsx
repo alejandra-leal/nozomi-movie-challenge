@@ -7,14 +7,14 @@ import { AdditionalSearchFilter } from "models/additional-search-filter";
 
 describe("NavigationBar", () => {
   it("shows navigation links", async () => {
-    render(<NavigationBar/>, initialState);
+    render(<NavigationBar />, initialState);
 
     expect(screen.getAllByRole("button")).toHaveLength(2);
   });
   it("dispatches Starred additional filter action when favorites nav link is clicked", async () => {
     const user = userEvent.setup();
     const dispatchMock = jest.fn();
-    render(<NavigationBar/>, initialState, dispatchMock);
+    render(<NavigationBar />, initialState, dispatchMock);
 
     await user.click(screen.getByTestId("favorites"));
 
@@ -26,7 +26,7 @@ describe("NavigationBar", () => {
   it("dispatches WatchLater additional filter action when watch later nav link is clicked", async () => {
     const user = userEvent.setup();
     const dispatchMock = jest.fn();
-    render(<NavigationBar/>, initialState, dispatchMock);
+    render(<NavigationBar />, initialState, dispatchMock);
 
     await user.click(screen.getByTestId("watch later"));
 
@@ -38,7 +38,14 @@ describe("NavigationBar", () => {
   it("dispatches None additional filter action when filter was already selected", async () => {
     const user = userEvent.setup();
     const dispatchMock = jest.fn();
-    render(<NavigationBar/>, {...initialState, additionalSearchFilter: AdditionalSearchFilter.Starred}, dispatchMock);
+    render(
+      <NavigationBar />,
+      {
+        ...initialState,
+        additionalSearchFilter: AdditionalSearchFilter.Starred,
+      },
+      dispatchMock
+    );
 
     await user.click(screen.getByTestId("favorites"));
 

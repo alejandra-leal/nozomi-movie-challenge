@@ -4,7 +4,7 @@ import { initialState } from "context/store";
 import { IMovieServiceResponse } from "models/movies-service-response";
 
 describe("useMovies hook", () => {
-  const dummyServiceResponse:IMovieServiceResponse  = {
+  const dummyServiceResponse: IMovieServiceResponse = {
     page: 1,
     results: [
       {
@@ -58,7 +58,9 @@ describe("useMovies hook", () => {
       Promise.resolve({ json: () => Promise.resolve(dummyServiceResponse) })
     ) as unknown as jest.Mock;
     const jsonMock2 = jest.fn(() =>
-      Promise.resolve({ json: () => Promise.resolve({ ...dummyServiceResponse, page: 2 }) })
+      Promise.resolve({
+        json: () => Promise.resolve({ ...dummyServiceResponse, page: 2 }),
+      })
     ) as unknown as jest.Mock;
 
     jest
@@ -67,7 +69,8 @@ describe("useMovies hook", () => {
       .mockImplementationOnce(jsonMock2);
 
     const { rerender } = renderHook(
-      (searchQuery: string, pageNum: number): IUseMoviesResponse => useMovies(searchQuery, pageNum),
+      (searchQuery: string, pageNum: number): IUseMoviesResponse =>
+        useMovies(searchQuery, pageNum),
       initialState,
       jest.fn(),
       {
@@ -81,20 +84,16 @@ describe("useMovies hook", () => {
     });
   });
   it("should return error when service call fails", async () => {
-    const errorMessage =  "error!";
-    jest
-      .spyOn(global, "fetch")
-      .mockImplementation(
-        jest.fn(() =>
-          {
-            throw new Error(errorMessage)
-          }
-        ) as jest.Mock
-      );
+    const errorMessage = "error!";
+    jest.spyOn(global, "fetch").mockImplementation(
+      jest.fn(() => {
+        throw new Error(errorMessage);
+      }) as jest.Mock
+    );
 
     const expectedResult: IUseMoviesResponse = {
       error: {
-        message: errorMessage
+        message: errorMessage,
       },
       hasNextPage: false,
       isError: true,

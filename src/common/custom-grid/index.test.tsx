@@ -5,16 +5,19 @@ import { initialState } from "context/store";
 
 describe("CustomGrid", () => {
   it("shows grid with content", async () => {
-    render(<>
-        <CustomGrid> 
+    render(
+      <>
+        <CustomGrid>
           <h1>Hello</h1>
         </CustomGrid>
-    </>, initialState);
+      </>,
+      initialState
+    );
 
     expect(screen.getByRole("grid")).toBeInTheDocument();
   });
   it("shows empty message when no children is provided", async () => {
-    render(<CustomGrid emptyMessage="Hello there"/>, initialState);
+    render(<CustomGrid emptyMessage="Hello there" />, initialState);
 
     expect(screen.getByTestId("empty-custom-grid-message")).toBeInTheDocument();
   });

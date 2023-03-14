@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useContext, useEffect } from "react";
-import {useMovies} from "../../hooks/useMovies";
+import { useMovies } from "../../hooks/useMovies";
 import { MovieCard } from "components/movie-card";
 import { AppContext } from "context/store";
 import styles from "./index.module.css";
@@ -62,16 +62,16 @@ export const SearchMovieSection = () => {
 
   return (
     <section data-testid="search-movie-grid">
-    <CustomGrid>
-      <>
-        {content}
-        {isLoading && hasNextPage && (
-          <div className={styles.loading}>
-            <p> Loading more posts..</p>
-          </div>
-        )}
-      </>
-    </CustomGrid>
+      <CustomGrid>
+        <>
+          {content}
+          {isLoading && hasNextPage && (
+            <div className={styles.loading}>
+              <p> Loading more posts..</p>
+            </div>
+          )}
+        </>
+      </CustomGrid>
     </section>
   );
 };

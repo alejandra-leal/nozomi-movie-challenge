@@ -1,6 +1,10 @@
 import styles from "./index.module.css";
 
-export const CustomModal: React.FC<IModalProps> = ({ closeModal, children, title }) => {
+export const CustomModal: React.FC<IModalProps> = ({
+  closeModal,
+  children,
+  title,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.modalContainer}>
@@ -16,9 +20,7 @@ export const CustomModal: React.FC<IModalProps> = ({ closeModal, children, title
         <div className={styles.title}>
           <h1>{title}</h1>
         </div>
-        <div className={styles.body}>
-          {children}
-        </div>
+        <div className={styles.body}>{children}</div>
       </div>
     </div>
   );

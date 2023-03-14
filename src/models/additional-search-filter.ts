@@ -1,5 +1,5 @@
 export enum AdditionalSearchFilter {
-    None = "NONE",
-    Starred = "STARRED",
-    WatchLater = "WATCH_LATER",
+  None = "NONE",
+  Starred = "STARRED",
+  WatchLater = "WATCH_LATER",
 }

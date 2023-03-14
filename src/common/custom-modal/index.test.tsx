@@ -6,22 +6,28 @@ import { initialState } from "context/store";
 
 describe("CustomModal", () => {
   it("shows modal with custom body", async () => {
-    render(<>
+    render(
+      <>
         <CustomModal closeModal={() => {}} title="Modal Title">
-            <h3 role="dialog">This is the modal content</h3>
+          <h3 role="dialog">This is the modal content</h3>
         </CustomModal>
-    </>, initialState);
+      </>,
+      initialState
+    );
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
   });
   it("should trigger the closeModal function when close button is clicked", async () => {
     const user = userEvent.setup();
     const onClose = jest.fn();
-    render(<>
+    render(
+      <>
         <CustomModal closeModal={onClose} title="Modal Title">
-            <h3 role="dialog">This is the modal content</h3>
+          <h3 role="dialog">This is the modal content</h3>
         </CustomModal>
-    </>, initialState);
+      </>,
+      initialState
+    );
 
     await user.click(screen.getByRole("button"));
 

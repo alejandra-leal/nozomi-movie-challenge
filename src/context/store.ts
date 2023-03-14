@@ -8,7 +8,7 @@ export const initialState: IAppContext = {
   searchQuery: "",
   favoriteMovies: new Map(),
   watchLaterMovies: new Map(),
-  movieModal: null
+  movieModal: null,
 };
 
 export enum ActionType {
@@ -27,20 +27,23 @@ type Actions =
   | { type: ActionType.SET_SEARCH_QUERY; payload: string }
   | { type: ActionType.HANDLE_FAVORITES; payload: IAddMoviePayload }
   | { type: ActionType.HANDLE_WATCH_LATER; payload: IAddMoviePayload }
-  | { type: ActionType.SET_MOVIE_MODAL; payload: IMovie | null }
+  | { type: ActionType.SET_MOVIE_MODAL; payload: IMovie | null };
 
 export const AppContext = React.createContext<{
   state: IAppContext;
   dispatch: Dispatch<Actions>;
 }>({ state: initialState, dispatch: () => null });
 
-export const stateReducer = (state: IAppContext, action: Actions): IAppContext => {
+export const stateReducer = (
+  state: IAppContext,
+  action: Actions
+): IAppContext => {
   switch (action.type) {
     case ActionType.SET_ADDITIONAL_FILTER: {
       return {
         ...state,
         additionalSearchFilter: action.payload,
-        searchQuery: ""
+        searchQuery: "",
       };
     }
     case ActionType.SET_SEARCH_QUERY: {
@@ -51,7 +54,7 @@ export const stateReducer = (state: IAppContext, action: Actions): IAppContext =
     }
     case ActionType.HANDLE_FAVORITES: {
       const movieId = action.payload.movie.id;
-      if(action.payload.shouldRemove) {
+      if (action.payload.shouldRemove) {
         state.favoriteMovies.delete(movieId);
       } else {
         state.favoriteMovies.set(movieId, action.payload.movie);
@@ -62,7 +65,7 @@ export const stateReducer = (state: IAppContext, action: Actions): IAppContext =
     }
     case ActionType.HANDLE_WATCH_LATER: {
       const movieId = action.payload.movie.id;
-      if(action.payload.shouldRemove) {
+      if (action.payload.shouldRemove) {
         state.watchLaterMovies.delete(movieId);
       } else {
         state.watchLaterMovies.set(movieId, action.payload.movie);

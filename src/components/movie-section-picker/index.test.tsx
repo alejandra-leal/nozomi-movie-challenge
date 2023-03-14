@@ -6,34 +6,42 @@ import { AdditionalSearchFilter } from "models/additional-search-filter";
 
 describe("MovieSectionPicker", () => {
   it("shows search grid when additional filter is None", async () => {
-    render(<>
-        <MovieSectionPicker/>
-    </>, {
-      ...initialState,
-      additionalSearchFilter: AdditionalSearchFilter.None
-    });
+    render(
+      <>
+        <MovieSectionPicker />
+      </>,
+      {
+        ...initialState,
+        additionalSearchFilter: AdditionalSearchFilter.None,
+      }
+    );
 
     expect(screen.getByTestId("search-movie-grid")).toBeInTheDocument();
   });
   it("shows favorites grid when additional filter is Starred", async () => {
-    render(<>
-        <MovieSectionPicker/>
-    </>, {
-      ...initialState,
-      additionalSearchFilter: AdditionalSearchFilter.Starred
-    });
+    render(
+      <>
+        <MovieSectionPicker />
+      </>,
+      {
+        ...initialState,
+        additionalSearchFilter: AdditionalSearchFilter.Starred,
+      }
+    );
 
     expect(screen.getByTestId("favorites-movie-grid")).toBeInTheDocument();
   });
   it("shows watch later grid when additional filter is WatchLater", async () => {
-    render(<>
-        <MovieSectionPicker/>
-    </>, {
-      ...initialState,
-      additionalSearchFilter: AdditionalSearchFilter.WatchLater
-    });
+    render(
+      <>
+        <MovieSectionPicker />
+      </>,
+      {
+        ...initialState,
+        additionalSearchFilter: AdditionalSearchFilter.WatchLater,
+      }
+    );
 
     expect(screen.getByTestId("watch-later-movie-grid")).toBeInTheDocument();
   });
-
 });

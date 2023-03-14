@@ -1,44 +1,45 @@
 @import "../../vars.css";
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .searchContainer {
-    display: flex;
-    justify-content: center;
-    width: 60%;
-    background-color: var(--color-light-cream);
-    border-radius: 35px;
-    padding: 6px;
-    max-width: 800px;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  background-color: var(--color-light-cream);
+  border-radius: 35px;
+  padding: 6px;
+  max-width: 800px;
 }
-.searchInput{
-    width: 100%;
-    border: none;
-    background-color: var(--color-light-cream);
-    outline: none;
-    font-size: .9em;
-    color: var(--icon-color);
-    margin-left: 20px;
+.searchInput {
+  width: 100%;
+  border: none;
+  background-color: var(--color-light-cream);
+  outline: none;
+  font-size: 0.9em;
+  color: var(--icon-color);
+  margin-left: 20px;
 }
-::placeholder{
-    color: var(--color-coral)
+::placeholder {
+  color: var(--color-coral);
 }
 
-.searchButton{
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
+.searchButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
 }
-.searchInput:disabled, .searchButton:disabled{
-    opacity: .1;
-    cursor: not-allowed;
+.searchInput:disabled,
+.searchButton:disabled {
+  opacity: 0.1;
+  cursor: not-allowed;
 }

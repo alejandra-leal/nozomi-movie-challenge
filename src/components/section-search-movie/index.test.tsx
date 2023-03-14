@@ -11,7 +11,7 @@ beforeEach(() => {
   mockIntersectionObserver.mockReturnValue({
     observe: () => null,
     unobserve: () => null,
-    disconnect: () => null
+    disconnect: () => null,
   });
   window.IntersectionObserver = mockIntersectionObserver;
 });
@@ -22,18 +22,18 @@ describe("SearchResultMovieSectionContent", () => {
       title: "Title 1",
       overview: "Description",
       poster_path: "/img/path",
-      release_date: ""
+      release_date: "",
     },
     {
       id: 1,
       title: "Title 2",
       overview: "Description 2",
       poster_path: "/img/path",
-      release_date: ""
-    }
+      release_date: "",
+    },
   ];
   it("renders section", async () => {
-    render(<SearchMovieSection/>, initialState);
+    render(<SearchMovieSection />, initialState);
     expect(screen.getByTestId("search-movie-grid")).toBeInTheDocument();
   });
   it("shows search movie grid", async () => {
@@ -42,9 +42,9 @@ describe("SearchResultMovieSectionContent", () => {
       isError: false,
       error: {},
       movieResults: movies,
-      hasNextPage: false
-  });
-    render(<SearchMovieSection/>, initialState);
+      hasNextPage: false,
+    });
+    render(<SearchMovieSection />, initialState);
     expect(screen.getByRole("grid")).toBeInTheDocument();
   });
 });

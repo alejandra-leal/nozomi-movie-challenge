@@ -11,10 +11,10 @@ export const AppHeader = () => {
         role="dialog"
         className={styles.title}
         onClick={() => {
-            dispatch({
-                type: ActionType.SET_ADDITIONAL_FILTER,
-                payload: AdditionalSearchFilter.None,
-            });
+          dispatch({
+            type: ActionType.SET_ADDITIONAL_FILTER,
+            payload: AdditionalSearchFilter.None,
+          });
         }}
       >
         nozimi.

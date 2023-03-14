@@ -26,12 +26,16 @@ export const SearchBar = () => {
           className={styles.searchInput}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          disabled = {state.additionalSearchFilter !== AdditionalSearchFilter.None}
+          disabled={
+            state.additionalSearchFilter !== AdditionalSearchFilter.None
+          }
         />
         <button
           className={styles.searchButton}
           onClick={() => handleSearch(searchQuery)}
-          disabled={state.additionalSearchFilter !== AdditionalSearchFilter.None}
+          disabled={
+            state.additionalSearchFilter !== AdditionalSearchFilter.None
+          }
         >
           <SearchIcon color="#A8534B" />
         </button>

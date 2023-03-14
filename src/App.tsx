@@ -2,7 +2,12 @@ import { useEffect, useReducer, useState } from "react";
 import { AppHeader } from "./components/app-header";
 import { NavigationBar } from "./components/navigation-bar";
 import { SearchBar } from "./components/search-bar";
-import { stateReducer, initialState, AppContext, ActionType } from "./context/store";
+import {
+  stateReducer,
+  initialState,
+  AppContext,
+  ActionType,
+} from "./context/store";
 import { MovieSectionPicker } from "components/movie-section-picker";
 import { TrailerModal } from "components/trailer-modal";
 
@@ -22,7 +27,7 @@ export function App() {
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       {openModal && state.movieModal && (
-        <TrailerModal movie={state.movieModal} closeModal={closeModal}/>
+        <TrailerModal movie={state.movieModal} closeModal={closeModal} />
       )}
       <AppHeader />
       <NavigationBar />

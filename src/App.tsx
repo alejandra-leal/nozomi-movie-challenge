@@ -10,6 +10,7 @@ import {
 } from "./context/store";
 import { MovieSectionPicker } from "components/movie-section-picker";
 import { TrailerModal } from "components/trailer-modal";
+import { BackToTop } from "components/back-to-top";
 
 export function App() {
   const [state, dispatch] = useReducer(stateReducer, initialState);
@@ -33,6 +34,7 @@ export function App() {
       <NavigationBar />
       <SearchBar />
       <MovieSectionPicker />
+      <BackToTop />
     </AppContext.Provider>
   );
 }

@@ -1,0 +1,13 @@
+.backToTopBtn {
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  z-index: 10;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.backToTopBtn:hover {
+  transform: scale(1.05, 1.05);
+}

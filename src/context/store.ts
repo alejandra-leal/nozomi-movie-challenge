@@ -20,10 +20,7 @@ export enum ActionType {
 }
 
 type Actions =
-  | {
-      type: ActionType.SET_ADDITIONAL_FILTER;
-      payload: AdditionalSearchFilter;
-    }
+  | { type: ActionType.SET_ADDITIONAL_FILTER; payload: AdditionalSearchFilter }
   | { type: ActionType.SET_SEARCH_QUERY; payload: string }
   | { type: ActionType.HANDLE_FAVORITES; payload: IAddMoviePayload }
   | { type: ActionType.HANDLE_WATCH_LATER; payload: IAddMoviePayload }

@@ -30,7 +30,6 @@ export const useMovies = (searchQuery:string, pageNum =1): IUseMoviesResponse =>
         })
         .catch(e => {
             setIsLoading(false);
-            // Aborted errors can be ignored, as it was created on purpose.
             if(signal.aborted) return;
             
             setIsError(true);

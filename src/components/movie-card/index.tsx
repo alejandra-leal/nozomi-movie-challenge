@@ -28,6 +28,7 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(
             <span>{movie.overview}</span>
           </div>
           <button
+            data-testid="watch-trailer"
             className={styles.watchTrailerBtn}
             onClick={() => {
               handleOpenModal();
@@ -48,7 +49,9 @@ export const MovieCard = React.forwardRef<any, IMovieCardPops>(
           />
         </div>
         <div className={styles.movieInfo}>
-          <span className={styles.movieType}>{movie.release_date.slice(0,4)}</span>
+          <span className={styles.movieType}>
+            {movie.release_date.slice(0, 4)}
+          </span>
           <h3 className={styles.movieTitle}>{movie.title}</h3>
         </div>
         <div className={styles.iconContainer}>

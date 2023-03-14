@@ -9,6 +9,7 @@ export const NavigationLink: React.FC<IProps> = ({
 }) => {
   return (
     <button
+      data-testid={text}
       className={`${styles.navItem} 
           ${isSelected ? styles.selected : ""}`}
       onClick={() => {

@@ -2,6 +2,7 @@ import { AppContext } from "context/store";
 import { useContext } from "react";
 import { MovieCard } from "components/movie-card";
 import { CustomGrid } from "common/custom-grid";
+import { EMPTY_DEFAULT_MESSAGE } from "../../constants";
 
 export const FavoritesMovieSection = () => {
   const { state } = useContext(AppContext);
@@ -12,7 +13,7 @@ export const FavoritesMovieSection = () => {
   return (
     <section data-testid="favorites-movie-grid">
     <CustomGrid
-        emptyMessage="Don't be shy, add a movie to your favorites list!"
+        emptyMessage={EMPTY_DEFAULT_MESSAGE.replace("%LIST_NAME%","favorites")}
       >
         {favoriteMovies}
       </CustomGrid>

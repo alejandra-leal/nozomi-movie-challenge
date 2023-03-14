@@ -2,6 +2,7 @@ import { AppContext } from "context/store";
 import { useContext } from "react";
 import { MovieCard } from "components/movie-card";
 import { CustomGrid } from "common/custom-grid";
+import { EMPTY_DEFAULT_MESSAGE } from "../../constants";
 
 export const WatchLaterMovieSection = () => {
   const { state } = useContext(AppContext);
@@ -12,7 +13,7 @@ export const WatchLaterMovieSection = () => {
   return (
     <section data-testid="watch-later-movie-grid">
     <CustomGrid
-        emptyMessage="Don't be shy, add a movie to your watch later list!"
+        emptyMessage={EMPTY_DEFAULT_MESSAGE.replace("%LIST_NAME%","watch later")}
       >
         {watchLaterMovies}
       </CustomGrid>

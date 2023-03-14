@@ -6,9 +6,10 @@ import { stateReducer, initialState, AppContext, ActionType } from "./context/st
 import { MovieSectionPicker } from "components/movie-section-picker";
 import { TrailerModal } from "components/trailer-modal";
 
-function App() {
+export function App() {
   const [state, dispatch] = useReducer(stateReducer, initialState);
   const [openModal, setOpenModal] = useState(false);
+  console.log(openModal);
   const closeModal = () => {
     dispatch({
       type: ActionType.SET_MOVIE_MODAL,

@@ -47,7 +47,7 @@ export const NavigationBar = () => {
   ];
 
   return (
-    <div className={styles.container}>
+    <div data-testid="nav-bar" className={styles.container}>
       <div className={styles.navItemsContainer}>
         {navigationLinks.map((navLink, index) => {
           return (

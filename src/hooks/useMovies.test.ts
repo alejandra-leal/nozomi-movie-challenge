@@ -1,9 +1,10 @@
 import { renderHook, waitFor } from "../utils/test-helper";
 import { IUseMoviesResponse, useMovies } from "./useMovies";
 import { initialState } from "context/store";
+import { IMovieServiceResponse } from "models/movies-service-response";
 
 describe("useMovies hook", () => {
-  const dummyServiceResponse = {
+  const dummyServiceResponse:IMovieServiceResponse  = {
     page: 1,
     results: [
       {

@@ -19,7 +19,7 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div data-testid="search-bar" className={styles.container}>
       <div className={styles.searchContainer}>
         <input
           placeholder="Search for movies"

@@ -51,7 +51,7 @@ export const useMovies = (searchQuery:string, pageNum =1): IUseMoviesResponse =>
 
 }
 
-interface IUseMoviesResponse {
+export interface IUseMoviesResponse {
         isLoading: boolean,
         isError: boolean
         error: {}

@@ -36,7 +36,7 @@ const renderOverride = (
 };
 
 const renderHookOverride = (
-  callback: (props: any) => any,
+  callback: (param1: any, param2?:any) => any,
   contextData: IAppContext = initialState,
   dispatchMock = jest.fn(),
   options?: any

@@ -27,3 +27,13 @@ i.e.
 `npm start`
 
 Enjoy!
+
+## Other available scripts
+
+For running all tests:
+
+`npm test`
+
+For formatting:
+
+`npm run format`

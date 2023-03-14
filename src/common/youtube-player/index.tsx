@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
-export const YoutubePlayer: React.FC<IYoutubePlayer> = ({ videoKey }) => (
+export const YoutubePlayer: React.FC<IYoutubePlayerProps> = ({ videoKey }) => (
   <ReactPlayer
     className="video-player"
     url={`https://www.youtube.com/watch?v=${videoKey}`}
@@ -11,6 +11,6 @@ export const YoutubePlayer: React.FC<IYoutubePlayer> = ({ videoKey }) => (
   />
 );
 
-interface IYoutubePlayer {
+interface IYoutubePlayerProps {
   videoKey: string;
 }

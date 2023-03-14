@@ -15,7 +15,6 @@ describe("NavigationBar", () => {
     const user = userEvent.setup();
     const dispatchMock = jest.fn();
     render(<NavigationBar/>, initialState, dispatchMock);
-    console.log(screen.getAllByRole("button"));
 
     await user.click(screen.getByTestId("favorites"));
 
@@ -28,7 +27,6 @@ describe("NavigationBar", () => {
     const user = userEvent.setup();
     const dispatchMock = jest.fn();
     render(<NavigationBar/>, initialState, dispatchMock);
-    console.log(screen.getAllByRole("button"));
 
     await user.click(screen.getByTestId("watch later"));
 

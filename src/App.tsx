@@ -9,7 +9,6 @@ import { TrailerModal } from "components/trailer-modal";
 export function App() {
   const [state, dispatch] = useReducer(stateReducer, initialState);
   const [openModal, setOpenModal] = useState(false);
-  console.log(openModal);
   const closeModal = () => {
     dispatch({
       type: ActionType.SET_MOVIE_MODAL,
